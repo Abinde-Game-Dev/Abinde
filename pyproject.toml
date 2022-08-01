@@ -1,6 +1,6 @@
 [project]
 name = "Pytine"
-version = "0.0.2"
+version = "0.0.4"
 dependencies = [
     "pygame>=2.1.2",
     "pyopengl",

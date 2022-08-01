@@ -7,12 +7,29 @@ Pytine is a python module for pygame.
 - Easy to use
 - Lightweight
 
+## How to use
+
+### Shell
+
+```sh
+desvasicek@github.com: ~$ pip install -U Pytine
+```
+
+### Python
+
+```python
+>>> import Pytine
+>>> game = Game("New Game!", 500, 500)
+>>> game.mainloop()
+```
+
 ## Requirements
 
 - __pygame__ for module.
 - __PyOpenGL__ for better pygame.
 - __threading__ for main loop.
 - __python__ for running module.
+- __PIL__ for image support
 
 ## Please Note
 

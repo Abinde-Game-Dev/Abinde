@@ -1,6 +1,7 @@
 LICENSE
 Pytine.py
 README.md
+README.rst
 pyproject.toml
 setup.cfg
 setup.py

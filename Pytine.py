@@ -6,11 +6,17 @@ from pygame.locals import *
 from OpenGL.GL import *
 import time, random
 import threading
+import PIL
 
 pygame.init()
 
 windows = []
 
+enemies = pygame.sprite.Group()
+objects = pygame.sprite.Group()
+class Image(object):
+    def __init__(self, image_path):
+        
 class error:
     
     class TitleError(Exception):
@@ -30,8 +36,10 @@ class error:
     
 
 class Game(object):
-    def __init__(self, title="New Firestorm Instance", width=500, height=600, bg=(0, 0, 0)):
-        # Create the window object.
+    def __init__(self, title="New Pytine Instance", width=500, height=600, bg=(0, 0, 0)):
+        """
+        Create the window object.
+        """
 
         try:
             if len(windows) <= 1:
@@ -50,8 +58,12 @@ class Game(object):
         self.looping = False
         self.bg = bg
         
+        windows.append(self)
+        
     def loop(self):
-        # Not for development use.
+        """
+        Not for development use.
+        """
         while self.looping:
             
             try:
@@ -73,9 +85,27 @@ class Game(object):
                 pass
             
     def mainloop(self):
-        # Start the window
+        """
+        Start the window
+        """
         
         self.looping = True
         
         thread_loop = threading.Thread(target=self.loop, daemon=True)
         thread_loop.start()
+
+class Sprite:
+    class Player(pygame.sprite.Sprite):
+        def __init__(self, health, accel, fric):
+            super().__init__()
+            self.image = image
+            self.rect = self.image.get_rect()
+        def move(self, x=0, y=0):
+            pass
+            
+    class Enemy(pygame.sprite.Sprite):
+        pass
+    class Animal(pygame.sprite.Sprite):
+        pass
+    class Object(pygame.sprite.Sprite):
+        pass

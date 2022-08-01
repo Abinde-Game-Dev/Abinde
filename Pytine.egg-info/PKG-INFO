@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Pytine
-Version: 0.0.2
+Version: 0.0.3
 Summary: Firestorm is an easy-to-use python module for pygame.
 Home-page: https://github.com/desvasicek/Pytine
 Author: desvasicek
@@ -15,26 +15,31 @@ Classifier: Topic :: Utilities
 Classifier: Intended Audience :: Developers
 License-File: LICENSE
 
-# Pytine
+Pytine
+======
 
 Pytine is a python module for pygame.
 
-## Advantages
+Advantages
+============
 
 - Easy to use
 - Lightweight
 
-## Requirements
+Requirements
+==============
 
-- __pygame__ for module.
-- __PyOpenGL__ for better pygame.
-- __threading__ for main loop.
-- __python__ for running module.
+- **pygame** for module.
+- **PyOpenGL** for better pygame.
+- **threading** for main loop.
+- **python** for running module.
 
-## Please Note
+Please Note
+=============
 
 To use this module, you will need at least some experience with coding python.
 
-## What's with the name?
+What's with the name?
+=======================
 
-To create the name, I combined the words python and engine. However a [Pytine](https://en.wikipedia.org/wiki/Pytine) is also an extinct genus of asaphid trilobites. (even I don't completely understand that)
+To create the name, I combined the words python and engine. However a `Pytine <https://en.wikipedia.org/wiki/Pytine>`_ is also an extinct genus of asaphid trilobites. (even I don't completely understand that)
