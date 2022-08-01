@@ -1,0 +1,9 @@
+[project]
+name = "Firestorm"
+version = "0.0.1"
+dependencies = [
+    "pygame>=2.1.2",
+    "pyopengl",
+    "threading",
+    'importlib-metadata; python_version == "3.8"'
+    ]
