@@ -7,15 +7,25 @@ from OpenGL.GL import *
 import time, random
 import threading
 import PIL
+import warnings
 
 pygame.init()
 
 windows = []
 
+warnings.simplefilter("once")
+
 enemies = pygame.sprite.Group()
 objects = pygame.sprite.Group()
 class Image(object):
-    def __init__(self, image_path):
+    def __init__(self, path):
+        self.path = path
+        self.isimageobj = True
+        self.image = Image.open(path)
+        self.mode = image.mode
+        self.size = image.size
+        self.data = image.tostring()
+        return pygame.image.fromstring(self.data, self.size, self.mode)
         
 class error:
     
@@ -32,7 +42,16 @@ class error:
             super().__init__("Width and height must be integers.")
     class MultipleInstanceError(Exception):
         def __init__(self):
-            super().__init__()
+            super().__init__("Please only have 1 instance open at once.")
+    class ImageError(Exception):
+        def __init__(self):
+            super().__init__("Please use Image class for sprite images.")
+
+class warn:
+    
+    class ImageWarning(DeprecationWarning):
+        def __init__(self):
+            warnings.warn("Using anything other than the Image class is highly advised against.", DeprecationWarning)
     
 
 class Game(object):
@@ -94,12 +113,20 @@ class Game(object):
         thread_loop = threading.Thread(target=self.loop, daemon=True)
         thread_loop.start()
 
-class Sprite:
+# DO NOT USE
+
+class sprite:
     class Player(pygame.sprite.Sprite):
-        def __init__(self, health, accel, fric):
+        def __init__(self, image, health=10, accel=1, fric=.9):
             super().__init__()
-            self.image = image
-            self.rect = self.image.get_rect()
+            try:
+                if image.isimageobj:
+                    self.image = image
+                    self.rect = self.image.get_rect()
+                else:
+                    warn.ImageWarning()
+            except:
+                raise error.ImageError
         def move(self, x=0, y=0):
             pass
             
@@ -109,3 +136,5 @@ class Sprite:
         pass
     class Object(pygame.sprite.Sprite):
         pass
+
+# END DO NOT USE
