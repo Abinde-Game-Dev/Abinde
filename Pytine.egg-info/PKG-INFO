@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: Pytine
-Version: 0.0.1
+Version: 0.0.2
 Summary: Firestorm is an easy-to-use python module for pygame.
-Home-page: https://github.com/desvasicek/Firestorm
+Home-page: https://github.com/desvasicek/Pytine
 Author: desvasicek
 License: MIT
 Keywords: OpenGL pygame python game-engine module easy

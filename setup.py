@@ -2,15 +2,14 @@ from setuptools import setup
 
 setup(
     name='Pytine',
-    version='0.0.1',
+    version='0.0.2',
     install_requires=[
         'pygame>=2.1.2',
 	'pyopengl',
-	'threading',
         'importlib-metadata; python_version == "3.8"',
     ],
     long_description=open("README.md").read(),
-    url="https://github.com/desvasicek/Firestorm",
+    url="https://github.com/desvasicek/Pytine",
     author="desvasicek",
     keywords="OpenGL pygame python game-engine module easy",
     license="MIT",

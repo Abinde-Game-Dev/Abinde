@@ -9,6 +9,8 @@ import threading
 
 pygame.init()
 
+windows = []
+
 class error:
     
     class TitleError(Exception):
@@ -22,6 +24,9 @@ class error:
     class SizeError(Exception):
         def __init__(self):
             super().__init__("Width and height must be integers.")
+    class MultipleInstanceError(Exception):
+        def __init__(self):
+            super().__init__()
     
 
 class Game(object):
@@ -29,7 +34,10 @@ class Game(object):
         # Create the window object.
 
         try:
-            self.root = pygame.display.set_mode((width, height))
+            if len(windows) <= 1:
+                self.root = pygame.display.set_mode((width, height))
+            else:
+                raise error.MultipleInstanceError
         except:
             raise error.SizeError
         
@@ -39,15 +47,15 @@ class Game(object):
             raise error.TitleError
         
         self.fps = pygame.time.Clock()
-        
         self.looping = False
+        self.bg = bg
         
     def loop(self):
         # Not for development use.
         while self.looping:
             
             try:
-                self.root.fill((255,255,255))
+                self.root.fill(self.bg)
             except:
                 raise error.BackgroundError
             
