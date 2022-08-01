@@ -1,5 +1,5 @@
 import unittest
-import Firestorm as fs
+import Pytine as pt
 
 class TestGame(unittest.TestCase):
 	

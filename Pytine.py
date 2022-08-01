@@ -1,4 +1,4 @@
-# Firestorm python game-engine
+# pytine python game-engine
 # Copyright 2022 MIT License desvasicek
 
 import pygame

@@ -1,0 +1,6 @@
+pygame>=2.1.2
+pyopengl
+threading
+
+[:python_version == "3.8"]
+importlib-metadata

@@ -1,6 +1,6 @@
-# Firestorm
+# Pytine
 
-Firestorm is a python module for pygame.
+Pytine is a python module for pygame.
 
 ## Advantages
 
@@ -17,3 +17,7 @@ Firestorm is a python module for pygame.
 ## Please Note
 
 To use this module, you will need at least some experience with coding python.
+
+## What's with the name?
+
+To create the name, I combined the words python and engine. However a [Pytine](https://en.wikipedia.org/wiki/Pytine) is also an extinct genus of asaphid trilobites. (even I don't completely understand that)
