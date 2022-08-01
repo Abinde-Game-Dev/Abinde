@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Pytine',
-    version='0.0.4',
+    version='1.0',
     install_requires=[
         'pygame>=2.1.2',
 	'pyopengl',

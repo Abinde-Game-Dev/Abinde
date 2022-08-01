@@ -12,6 +12,7 @@ import warnings
 pygame.init()
 
 windows = []
+players = []
 
 warnings.simplefilter("once")
 
@@ -21,7 +22,7 @@ class Image(object):
     def __init__(self, path):
         self.path = path
         self.isimageobj = True
-        self.image = Image.open(path)
+        self.image = PIL.Image.open(path)
         self.mode = image.mode
         self.size = image.size
         self.data = image.tostring()
@@ -42,10 +43,13 @@ class error:
             super().__init__("Width and height must be integers.")
     class MultipleInstanceError(Exception):
         def __init__(self):
-            super().__init__("Please only have 1 instance open at once.")
+            super().__init__("Please only have 1 window open at once.")
     class ImageError(Exception):
         def __init__(self):
             super().__init__("Please use Image class for sprite images.")
+    class MultiplePlayerError(Exception):
+        def __init__(self):
+            super().__init__("Please only have 1 player object in use.")
 
 class warn:
     
@@ -59,6 +63,7 @@ class Game(object):
         """
         Create the window object.
         """
+        global windows
 
         try:
             if len(windows) <= 1:
@@ -95,11 +100,14 @@ class Game(object):
                     pygame.quit()
                 elif event.type == pygame.KEYDOWN:
                     self.looping = True
-            
-            self.fps.tick(60)
+
+            for player in players:
+                player.move()
+                player.draw()
             
             try:
                 pygame.display.flip()
+                self.fps.tick(60)
             except:
                 pass
             
@@ -110,31 +118,63 @@ class Game(object):
         
         self.looping = True
         
-        thread_loop = threading.Thread(target=self.loop, daemon=True)
-        thread_loop.start()
+        self.thread_loop = threading.Thread(target=self.loop, daemon=True)
+        self.thread_loop.start()
 
 # DO NOT USE
 
 class sprite:
     class Player(pygame.sprite.Sprite):
-        def __init__(self, image, health=10, accel=1, fric=.9):
+        def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1):
+            
             super().__init__()
-            try:
-                if image.isimageobj:
-                    self.image = image
-                    self.rect = self.image.get_rect()
-                else:
-                    warn.ImageWarning()
-            except:
-                raise error.ImageError
-        def move(self, x=0, y=0):
-            pass
+            
+            global players
+            players.append(self)
+
+            if not len(players) <= 1:
+                raise error.MultiplePlayerError
+
+            if image.isimageobj:
+                self.image = image
+            else:
+                warn.ImageWarning()
+
+            self.rect = self.image.get_rect()
+            self.title = title
+            self.VEL = [0, 0]
+            self.ACC = ACC
+            self.FRIC = FRIC
+            self.pos = pos
+            
+        def move(self):
+
+            self.k_pressed = pygame.key.get_pressed()
+            
+            if self.k_pressed[K_LEFT]:
+                self.vel[0] = -self.ACC
+            if self.k_pressed[K_RIGHT]:
+                self.vel[0] = self.ACC
+
+            self.vel[0] *= self.FRIC
+            self.rect.midbottom = self.pos
+
+        def draw(self, game):
+
+            game.root.blit(self.image, self.rect)
             
     class Enemy(pygame.sprite.Sprite):
-        pass
+        def __init__(self):
+            super().__init__()
+            global enemies
+            enemies.add(self)
     class Animal(pygame.sprite.Sprite):
-        pass
+        def __init__(self):
+            super().__init__()
     class Object(pygame.sprite.Sprite):
-        pass
+        def __init__(self):
+            super().__init__()
+            global objects
+            objects.add(self)
 
 # END DO NOT USE
