@@ -13,7 +13,7 @@ Abinde is a python module for pygame.
 ### Shell
 
 ```sh
-desvasicek@github.com: ~$ pip install -U Abinde
+pip install -U Abinde
 ```
 
 ### Python
