@@ -19,9 +19,10 @@ desvasicek@github.com: ~$ pip install -U Abinde
 ### Python
 
 ```python
->>> import Abinde
->>> game = Game("New Game!", 500, 500)
->>> game.mainloop()
+import Abinde as ab
+game = ab.Game()
+player = ab.sprite.Player(ab.LoadImage("path/to/image"))
+game.mainloop()
 ```
 
 ## Requirements
@@ -34,9 +35,9 @@ desvasicek@github.com: ~$ pip install -U Abinde
 
 ## Tested on
 
-| Raspberry Pi OS |
-|----------------------|
-| Stable (v1.0)       |
+| Raspberry Pi OS | Debian Linux    |
+|-----------------|-----------------|
+| Stable (v1.2)   | Stable (v1.2)   |
 
 ## Please Note
 
