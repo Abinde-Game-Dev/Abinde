@@ -1,12 +1,12 @@
 # pytine python game-engine
 # Copyright 2022 MIT License desvasicek
 
+from PIL import Image as PILImage
 import pygame
 from pygame.locals import *
 from OpenGL.GL import *
 import time, random
 import threading
-import PIL
 import warnings
 
 pygame.init()
@@ -18,15 +18,18 @@ warnings.simplefilter("once")
 
 enemies = pygame.sprite.Group()
 objects = pygame.sprite.Group()
-class Image(object):
-    def __init__(self, path):
-        self.path = path
-        self.isimageobj = True
-        self.image = PIL.Image.open(path)
-        self.mode = image.mode
-        self.size = image.size
-        self.data = image.tostring()
-        return pygame.image.fromstring(self.data, self.size, self.mode)
+
+game_quit = False
+
+def pil_image_to_surface(pilImage):
+    """
+    Not for development use.
+    """
+    return pygame.image.fromstring(
+        pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
+def LoadImage(path):
+    return pil_image_to_surface(PILImage.open(path))
+        
         
 class error:
     
@@ -79,7 +82,7 @@ class Game(object):
             raise error.TitleError
         
         self.fps = pygame.time.Clock()
-        self.looping = False
+        self.looping = True
         self.bg = bg
         
         windows.append(self)
@@ -88,28 +91,30 @@ class Game(object):
         """
         Not for development use.
         """
+        global game_quit
+        
         while self.looping:
-            
-            try:
-                self.root.fill(self.bg)
-            except:
-                raise error.BackgroundError
-            
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                elif event.type == pygame.KEYDOWN:
-                    self.looping = True
+            if not game_quit:
+                
+                try:
+                    self.root.fill(self.bg)
+                except:
+                    raise error.BackgroundError
+                
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        game_quit = True
 
-            for player in players:
-                player.move()
-                player.draw()
-            
-            try:
-                pygame.display.flip()
-                self.fps.tick(60)
-            except:
-                pass
+                for player in players:
+                    player.move()
+                    player.draw(self)
+                
+                try:
+                    pygame.display.flip()
+                    self.fps.tick(60)
+                except:
+                    pass
             
     def mainloop(self):
         """
@@ -135,9 +140,9 @@ class sprite:
             if not len(players) <= 1:
                 raise error.MultiplePlayerError
 
-            if image.isimageobj:
+            try:
                 self.image = image
-            else:
+            except:
                 warn.ImageWarning()
 
             self.rect = self.image.get_rect()
@@ -149,19 +154,26 @@ class sprite:
             
         def move(self):
 
-            self.k_pressed = pygame.key.get_pressed()
+            try:
+                self.k_pressed = pygame.key.get_pressed()
+            except:
+                pass
             
             if self.k_pressed[K_LEFT]:
-                self.vel[0] = -self.ACC
+                self.VEL[0] -= self.ACC
             if self.k_pressed[K_RIGHT]:
-                self.vel[0] = self.ACC
+                self.VEL[0] += self.ACC
 
-            self.vel[0] *= self.FRIC
+            self.VEL[0] *= self.FRIC
+            self.pos[0] += self.VEL
             self.rect.midbottom = self.pos
 
         def draw(self, game):
 
-            game.root.blit(self.image, self.rect)
+            try:
+                game.root.blit(self.image, self.rect)
+            except:
+                pass
             
     class Enemy(pygame.sprite.Sprite):
         def __init__(self):
