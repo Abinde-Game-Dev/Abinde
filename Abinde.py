@@ -1,4 +1,4 @@
-# pytine python game-engine
+# Abinde python game-engine
 # Copyright 2022 MIT License desvasicek
 
 from PIL import Image as PILImage
