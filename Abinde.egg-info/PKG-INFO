@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: Abinde
+Version: 1.2
+Summary: Pytine is an easy-to-use python module for pygame.
+Home-page: https://github.com/desvasicek/Pytine
+Author: desvasicek
+License: MIT
+Keywords: OpenGL pygame python game-engine module easy
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+License-File: LICENSE
+
+Abinde
+======
+
+Abinde is a python module for pygame.
+
+Advantages
+============
+
+- Easy to use
+- Lightweight
+
+Requirements
+==============
+
+- **pygame** for module.
+- **PyOpenGL** for better pygame.
+- **threading** for main loop.
+- **python** for running module.
+- **PIL** for image support
+
+Please Note
+=============
+
+To use this module, you will need at least some experience with coding python.

@@ -2,11 +2,12 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.1',
+    version='1.2',
     install_requires=[
         'pygame>=2.1.2',
 	'pyopengl',
-        'importlib-metadata; python_version == "3.8"',
+        'importlib-metadata; python_version >= "3.8"',
+        'pillow'
     ],
     long_description=open("README.rst").read(),
     url="https://github.com/desvasicek/Pytine",
