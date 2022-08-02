@@ -31,6 +31,12 @@ desvasicek@github.com: ~$ pip install -U Pytine
 - __python__ for running module.
 - __PIL__ for image support
 
+## Tested on
+
+| Raspberry Pi OS |
+|----------------------|
+| Stable (v1.0)       |
+
 ## Please Note
 
 To use this module, you will need at least some experience with coding python.
