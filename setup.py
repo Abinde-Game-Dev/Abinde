@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='Pytine',
+    name='Abinde',
     version='1.1',
     install_requires=[
         'pygame>=2.1.2',
