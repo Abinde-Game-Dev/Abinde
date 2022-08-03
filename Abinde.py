@@ -21,14 +21,26 @@ objects = pygame.sprite.Group()
 
 game_quit = False
 
+class color:
+    BLACK = (0, 0, 0)
+    WHITE = (255, 255, 255)
+    GREY = (128, 128, 128)
+    RED = (255, 0, 0)
+    GREEN = (0, 255, 0)
+
 def pil_image_to_surface(pilImage):
     """
     Not for development use.
     """
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
-def LoadImage(path):
-    return pil_image_to_surface(PILImage.open(path))
+def LoadImage(path, mode="PIL"):
+    if mode == "PIL":
+        return pil_image_to_surface(PILImage.open(path))
+    elif mode == "pygame":
+        return pygame.image.load(path)
+    else:
+        raise error.SetModeError
         
         
 class error:
@@ -46,13 +58,16 @@ class error:
             super().__init__("Width and height must be integers.")
     class MultipleInstanceError(Exception):
         def __init__(self):
-            super().__init__("Please only have 1 window open at once.")
+            super().__init__("You can only have 1 window open at once.")
     class ImageError(Exception):
         def __init__(self):
-            super().__init__("Please use Image class for sprite images.")
+            super().__init__("Use Image class for sprite images.")
     class MultiplePlayerError(Exception):
         def __init__(self):
-            super().__init__("Please only have 1 player object in use.")
+            super().__init__("You can only have 1 player object in use at once.")
+    class SetModeError(Exception):
+        def __init__(self):
+            super().__init__("Only options 'PIL' and 'pygame' are supported.")
 
 class warn:
     
@@ -62,7 +77,7 @@ class warn:
     
 
 class Game(object):
-    def __init__(self, title="New Pytine Instance", width=500, height=600, bg=(0, 0, 0)):
+    def __init__(self, title="New Abinde Instance", width=500, height=600, bg=(0, 0, 0)):
         """
         Create the window object.
         """
@@ -84,6 +99,7 @@ class Game(object):
         self.fps = pygame.time.Clock()
         self.looping = True
         self.bg = bg
+        self.root.fill(bg)
         
         windows.append(self)
         
@@ -151,6 +167,7 @@ class sprite:
             self.ACC = ACC
             self.FRIC = FRIC
             self.pos = pos
+            self.rect.center = self.pos
             
         def move(self):
 
@@ -165,8 +182,7 @@ class sprite:
                 self.VEL[0] += self.ACC
 
             self.VEL[0] *= self.FRIC
-            self.pos[0] += self.VEL
-            self.rect.midbottom = self.pos
+            self.rect.move_ip(VEL[0], VEL[1])
 
         def draw(self, game):
 
@@ -174,6 +190,10 @@ class sprite:
                 game.root.blit(self.image, self.rect)
             except:
                 pass
+
+        def kill(self):
+            players.remove(self)
+            del self
             
     class Enemy(pygame.sprite.Sprite):
         def __init__(self):
