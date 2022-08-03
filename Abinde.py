@@ -4,7 +4,6 @@
 from PIL import Image as PILImage
 import pygame
 from pygame.locals import *
-from OpenGL.GL import *
 import time, random
 import threading
 import warnings
@@ -139,8 +138,7 @@ class Game(object):
         
         self.looping = True
         
-        self.thread_loop = threading.Thread(target=self.loop, daemon=True)
-        self.thread_loop.start()
+        self.loop()
 
 # DO NOT USE
 
