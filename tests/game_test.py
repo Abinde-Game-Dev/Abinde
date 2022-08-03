@@ -1,7 +1,7 @@
-import Pytine as pt
+import Abinde as ab
 
-game = pt.Game()
+game = ab.Game()
 
-player = pt.sprite.Player(pt.LoadImage("dino-assets/sheets/DinoSprites - tard.png"))
+player = ab.sprite.Player(ab.LoadImage("dino-assets/sheets/DinoSprites - tard.png"), "pygame")
 
 game.mainloop()
