@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.4',
+    version='1.5',
     install_requires=[
         'pygame>=2.1.2',
 	'pyopengl',
@@ -14,7 +14,7 @@ setup(
     author="desvasicek",
     keywords="OpenGL pygame python game-engine module easy",
     license="MIT",
-    description="Pytine is an easy-to-use python module for pygame.",
+    description="Abinde is an easy-to-use python module for pygame.",
     classifiers=[
 	    "Development Status :: 2 - Pre-Alpha",
 	    "License :: OSI Approved :: MIT License",

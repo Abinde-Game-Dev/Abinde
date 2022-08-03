@@ -120,6 +120,7 @@ class Game(object):
                     if event.type == pygame.QUIT:
                         pygame.quit()
                         game_quit = True
+                        self.looping = False
 
                 for player in players:
                     player.move()
