@@ -7,6 +7,9 @@ from pygame.locals import *
 import time, random
 import threading
 import warnings
+import color
+
+print(color.TOMATO2)
 
 pygame.init()
 
@@ -20,15 +23,6 @@ enemies = pygame.sprite.Group()
 objects = pygame.sprite.Group()
 
 game_quit = False
-
-
-class color:
-    BLACK = (0, 0, 0)
-    WHITE = (255, 255, 255)
-    GREY = (128, 128, 128)
-    RED = (255, 0, 0)
-    GREEN = (0, 255, 0)
-
 
 def pil_image_to_surface(pilImage):
     """
