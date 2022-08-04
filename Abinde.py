@@ -246,13 +246,15 @@ class sprite:
             
         def draw(self, game):
             pygame.draw.rect(game.root, self.color, self.rect)
+        def returntitle(self):
+            return self.title
 
             
     class Line(object):
         """
         Draw a line
         """
-        def __init__(self, pos=[40, 40], length=[50, 50], color=color.WHITE, title="Line"):
+        def __init__(self, pos=[0, 0], length=[50, 50], color=color.WHITE, title="Line"):
             self._x = pos[0]
             self._y = pos[1]
             self._start = length[0]
@@ -263,13 +265,15 @@ class sprite:
             
         def draw(self, game):
             pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
+        def returntitle(self):
+            return self.title
 
             
     class Ellipse(object):
         """
         Draw an ellipse
         """
-        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Ellipse"):
+        def __init__(self, pos=[80, 80], size=[50, 50], color=color.WHITE, title="Ellipse"):
             self._x = pos[0]
             self._y = pos[1]
             self._width = size[0]
@@ -279,5 +283,9 @@ class sprite:
             drawings.append(self)
             
         def draw(self, game):
-            pygame.draw.ellipse(game.root, self.color)
-            
+            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+        def returntitle(self):
+            return self.title
+
+
+

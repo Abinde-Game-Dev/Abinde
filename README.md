@@ -28,7 +28,6 @@ game.mainloop()
 ## Requirements
 
 - __pygame__ for module.
-- __PyOpenGL__ for better pygame.
 - __threading__ for main loop.
 - __python__ for running module.
 - __PIL__ for image support

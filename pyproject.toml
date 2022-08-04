@@ -1,9 +1,8 @@
 [project]
 name = "Abinde"
-version = "1.9"
+version = "1.9.1"
 dependencies = [
     "pygame>=2.1.2",
-    "pyopengl",
     "pillow",
     'importlib-metadata; python_version == "3.8"'
     ]

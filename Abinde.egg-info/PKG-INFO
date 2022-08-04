@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: Abinde
-Version: 1.9
+Version: 1.9.1
 Summary: Abinde is an easy-to-use python module for pygame.
-Home-page: https://github.com/desvasicek/Pytine
+Home-page: https://github.com/desvasicek/Abinde
 Author: desvasicek
 License: MIT
-Keywords: OpenGL pygame python game-engine module easy
+Keywords: game python lightweight pen-source raspberry-pi games image game-engine simple game-development game-2d pygame help-wanted easy-to-use easy open-source-project good-first-issue pygame-games pygame-game
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Natural Language :: English

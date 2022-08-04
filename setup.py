@@ -2,17 +2,16 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.9',
+    version='1.9.1',
     install_requires=[
         'pygame>=2.1.2',
-	'pyopengl',
         'importlib-metadata; python_version >= "3.8"',
         'pillow'
     ],
     long_description=open("README.rst").read(),
-    url="https://github.com/desvasicek/Pytine",
+    url="https://github.com/desvasicek/Abinde",
     author="desvasicek",
-    keywords="OpenGL pygame python game-engine module easy",
+    keywords="game python lightweight pen-source raspberry-pi games image game-engine simple game-development game-2d pygame help-wanted easy-to-use easy open-source-project good-first-issue pygame-games pygame-game",
     license="MIT",
     description="Abinde is an easy-to-use python module for pygame.",
     classifiers=[

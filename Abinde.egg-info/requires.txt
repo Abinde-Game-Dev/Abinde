@@ -1,5 +1,4 @@
 pygame>=2.1.2
-pyopengl
 pillow
 
 [:python_version == "3.8"]
