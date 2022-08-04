@@ -123,7 +123,7 @@ class Game(object):
                     player.move()
                     player.draw(self)
                 for drawing in drawings:
-                    drawing.draw()
+                    drawing.draw(self)
                 try:
                     pygame.display.flip()
                     self.fps.tick(60)
@@ -145,6 +145,9 @@ class Game(object):
 class sprite:
     class Player(pygame.sprite.Sprite):
         def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1):
+            """
+            User-playable object
+            """
             super().__init__()
             global players
             players.append(self)
@@ -163,6 +166,9 @@ class sprite:
             self.rect.center = self.pos
             
         def move(self):
+            """
+            Not for development use.
+            """
             try:
                 self.k_pressed = pygame.key.get_pressed()
             except:
@@ -175,6 +181,9 @@ class sprite:
             self.rect.move_ip(VEL[0], VEL[1])
             
         def draw(self, game):
+            """
+            Not for development use.
+            """
             try:
                 game.root.blit(self.image, self.rect)
             except:
