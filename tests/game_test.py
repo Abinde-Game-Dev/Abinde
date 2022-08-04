@@ -2,6 +2,6 @@ import Abinde as ab
 
 game = ab.Game()
 
-rect = ab.sprite.Rectangle()
+rect = ab.sprite.Line()
 
 game.mainloop()

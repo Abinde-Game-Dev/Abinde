@@ -38,6 +38,9 @@ def pil_image_to_surface(pilImage):
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
 
 def LoadImage(path, mode="PIL"):
+    """
+    Load an image
+    """
     if mode == "PIL":
         return pil_image_to_surface(PILImage.open(path))
     elif mode == "pygame":
@@ -80,10 +83,10 @@ class warn:
     
 
 class Game(object):
+    """
+    Create the window object.
+    """
     def __init__(self, title="New Abinde Instance", width=500, height=600, bg=color.BLACK):
-        """
-        Create the window object.
-        """
         global windows
         try:
             if len(windows) <= 1:
@@ -144,10 +147,10 @@ class Game(object):
 
 class sprite:
     class Player(pygame.sprite.Sprite):
+        """
+        User-playable object
+        """
         def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1):
-            """
-            User-playable object
-            """
             super().__init__()
             global players
             players.append(self)
@@ -190,11 +193,17 @@ class sprite:
                 pass
             
         def kill(self):
+            """
+            Remove the sprite
+            """
             players.remove(self)
             del self
 
             
     class Enemy(pygame.sprite.Sprite):
+        """
+        Enemy object that can hurt the player
+        """
         def __init__(self):
             super().__init__()
             global enemies
@@ -202,18 +211,29 @@ class sprite:
 
             
     class Animal(pygame.sprite.Sprite):
+        """
+        Animal object that wanders around.
+        """
         def __init__(self):
             super().__init__()
 
             
     class Object(pygame.sprite.Sprite):
+        """
+        Platforms.
+        """
         def __init__(self):
             super().__init__()
             global objects
             objects.add(self)
 
+# END DO NOT USE
+
             
     class Rectangle(object):
+        """
+        Draw a rectangle
+        """
         def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
             self._x = pos[0]
             self._y = pos[1]
@@ -229,20 +249,26 @@ class sprite:
 
             
     class Line(object):
-        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Line"):
+        """
+        Draw a line
+        """
+        def __init__(self, pos=[40, 40], length=[50, 50], color=color.WHITE, title="Line"):
             self._x = pos[0]
             self._y = pos[1]
-            self._width = size[0]
-            self._height = size[1]
+            self._start = length[0]
+            self._end = length[1]
             self.color = color
             self.title = title
             drawings.append(self)
             
         def draw(self, game):
-            pygame.draw.line(game.root, self.color, (self._x, self._y, self._width, self._height))
+            pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
 
             
-    class Elipse(object):
+    class Ellipse(object):
+        """
+        Draw an ellipse
+        """
         def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Ellipse"):
             self._x = pos[0]
             self._y = pos[1]
@@ -253,7 +279,5 @@ class sprite:
             drawings.append(self)
             
         def draw(self, game):
-            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+            pygame.draw.ellipse(game.root, self.color)
             
-
-# END DO NOT USE
