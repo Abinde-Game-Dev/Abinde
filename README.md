@@ -45,3 +45,7 @@ To use this module, you will need at least some experience with coding python.
 ## How hard is it to create a module?
 
 It is __really hard__, especially `build`ing, which takes __so long__! 
+
+## Color Module
+
+Found [here](https://desvasicek.github.io/colortable.html).
