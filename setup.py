@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.5',
+    version='1.6',
     install_requires=[
         'pygame>=2.1.2',
 	'pyopengl',

@@ -12,6 +12,7 @@ pygame.init()
 
 windows = []
 players = []
+drawings = []
 
 warnings.simplefilter("once")
 
@@ -20,6 +21,7 @@ objects = pygame.sprite.Group()
 
 game_quit = False
 
+
 class color:
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
@@ -27,12 +29,14 @@ class color:
     RED = (255, 0, 0)
     GREEN = (0, 255, 0)
 
+
 def pil_image_to_surface(pilImage):
     """
     Not for development use.
     """
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
+
 def LoadImage(path, mode="PIL"):
     if mode == "PIL":
         return pil_image_to_surface(PILImage.open(path))
@@ -76,12 +80,11 @@ class warn:
     
 
 class Game(object):
-    def __init__(self, title="New Abinde Instance", width=500, height=600, bg=(0, 0, 0)):
+    def __init__(self, title="New Abinde Instance", width=500, height=600, bg=color.BLACK):
         """
         Create the window object.
         """
         global windows
-
         try:
             if len(windows) <= 1:
                 self.root = pygame.display.set_mode((width, height))
@@ -89,77 +92,68 @@ class Game(object):
                 raise error.MultipleInstanceError
         except:
             raise error.SizeError
-        
         try:
             pygame.display.set_caption(title)
         except:
             raise error.TitleError
-        
         self.fps = pygame.time.Clock()
         self.looping = True
         self.bg = bg
         self.root.fill(bg)
-        
         windows.append(self)
         
     def loop(self):
         """
         Not for development use.
         """
-        global game_quit
         
+        global game_quit
         while self.looping:
             if not game_quit:
-                
                 try:
                     self.root.fill(self.bg)
                 except:
                     raise error.BackgroundError
-                
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         pygame.quit()
                         game_quit = True
                         self.looping = False
-
                 for player in players:
                     player.move()
                     player.draw(self)
-                
+                for drawing in drawings:
+                    drawing.draw()
                 try:
                     pygame.display.flip()
                     self.fps.tick(60)
                 except:
                     pass
-            
+
     def mainloop(self):
         """
         Start the window
         """
         
         self.looping = True
-        
+        # To fix bug on mac run loop on Main Thread.
         self.loop()
+        
 
 # DO NOT USE
 
 class sprite:
     class Player(pygame.sprite.Sprite):
         def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1):
-            
             super().__init__()
-            
             global players
             players.append(self)
-
             if not len(players) <= 1:
                 raise error.MultiplePlayerError
-
             try:
                 self.image = image
             except:
                 warn.ImageWarning()
-
             self.rect = self.image.get_rect()
             self.title = title
             self.VEL = [0, 0]
@@ -169,43 +163,88 @@ class sprite:
             self.rect.center = self.pos
             
         def move(self):
-
             try:
                 self.k_pressed = pygame.key.get_pressed()
             except:
                 pass
-            
             if self.k_pressed[K_LEFT]:
                 self.VEL[0] -= self.ACC
             if self.k_pressed[K_RIGHT]:
                 self.VEL[0] += self.ACC
-
             self.VEL[0] *= self.FRIC
             self.rect.move_ip(VEL[0], VEL[1])
-
+            
         def draw(self, game):
-
             try:
                 game.root.blit(self.image, self.rect)
             except:
                 pass
-
+            
         def kill(self):
             players.remove(self)
             del self
+
             
     class Enemy(pygame.sprite.Sprite):
         def __init__(self):
             super().__init__()
             global enemies
             enemies.add(self)
+
+            
     class Animal(pygame.sprite.Sprite):
         def __init__(self):
             super().__init__()
+
+            
     class Object(pygame.sprite.Sprite):
         def __init__(self):
             super().__init__()
             global objects
             objects.add(self)
+
+            
+    class Rectangle(object):
+        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
+            self._x = pos[0]
+            self._y = pos[1]
+            self._width = size[0]
+            self._height = size[1]
+            self.color = color
+            self.title = title
+            drawings.append(self)
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+            
+        def draw(self, game):
+            pygame.draw.rect(game.root, self.color, self.rect)
+
+            
+    class Line(object):
+        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Line"):
+            self._x = pos[0]
+            self._y = pos[1]
+            self._width = size[0]
+            self._height = size[1]
+            self.color = color
+            self.title = title
+            drawings.append(self)
+            
+        def draw(self, game):
+            pygame.draw.line(game.root, self.color, (self._x, self._y, self._width, self._height))
+
+            
+    class Elipse(object):
+        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Ellipse"):
+            self._x = pos[0]
+            self._y = pos[1]
+            self._width = size[0]
+            self._height = size[1]
+            self.color = color
+            self.title = title
+            drawings.append(self)
+            
+        def draw(self, game):
+            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+            
 
 # END DO NOT USE

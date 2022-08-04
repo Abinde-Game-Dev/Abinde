@@ -1,6 +1,6 @@
 [project]
 name = "Abinde"
-version = "1.5"
+version = "1.6"
 dependencies = [
     "pygame>=2.1.2",
     "pyopengl",
