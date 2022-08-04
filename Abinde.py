@@ -5,11 +5,8 @@ from PIL import Image as PILImage
 import pygame
 from pygame.locals import *
 import time, random
-import threading
 import warnings
 import color
-
-print(color.TOMATO2)
 
 pygame.init()
 

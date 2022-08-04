@@ -28,7 +28,6 @@ game.mainloop()
 ## Requirements
 
 - __pygame__ for module.
-- __threading__ for main loop.
 - __python__ for running module.
 - __PIL__ for image support
 
@@ -44,4 +43,4 @@ To use this module, you will need at least some experience with coding python.
 
 ## How hard is it to create a module?
 
-It is __really hard__, especially `build`ing, which takes __so long__! 
+It is __really hard__, especially building, which takes __so long__! 
