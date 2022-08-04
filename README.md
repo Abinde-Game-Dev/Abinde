@@ -35,11 +35,14 @@ game.mainloop()
 
 ## Tested on
 
-| Raspberry Pi OS | Debian Linux    | Mac          |
+| Raspberry Pi OS | Debian Linux    | Mac             |
 |-----------------|-----------------|-----------------|
-| Stable (v1.3)   | Stable (v1.2)   | Unstable          |
+| Stable (v1.3)   | Stable (v1.2)   | Stable (v1.1    |
 
 ## Please Note
 
 To use this module, you will need at least some experience with coding python.
-libc++abi.dylib: terminating with uncaught exception of type NSException
+
+## How hard is it to create a module?
+
+It is __really hard__, especially `build`ing, which takes __so long__! 
