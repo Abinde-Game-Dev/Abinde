@@ -86,562 +86,562 @@ _Not Documented Yet._
 ## Colors
 
 <details><summary>All Colors (ABC Order)</summary>
-
-
-- __ALICEBLUE__
-- __ANTIQUEWHITE__
-- __ANTIQUEWHITE1__
-- __ANTIQUEWHITE2__
-- __ANTIQUEWHITE3__
-- __ANTIQUEWHITE4__
-- __AQUA__
-- __AQUAMARINE1__
-- __AQUAMARINE2__
-- __AQUAMARINE3__
-- __AQUAMARINE4__
-- __AZURE1__
-- __AZURE2__
-- __AZURE3__
-- __AZURE4__
-- __BANANA__
-- __BEIGE__
-- __BISQUE1__
-- __BISQUE2__
-- __BISQUE3__
-- __BISQUE4__
-- __BLACK__
-- __BLANCHEDALMOND__
-- __BLUE__
-- __BLUE2__
-- __BLUE3__
-- __BLUE4__
-- __BLUEVIOLET__
-- __BRICK__
-- __BROWN__
-- __BROWN1__
-- __BROWN2__
-- __BROWN3__
-- __BROWN4__
-- __BURLYWOOD__
-- __BURLYWOOD1__
-- __BURLYWOOD2__
-- __BURLYWOOD3__
-- __BURLYWOOD4__
-- __BURNTSIENNA__
-- __BURNTUMBER__
-- __CADETBLUE__
-- __CADETBLUE1__
-- __CADETBLUE2__
-- __CADETBLUE3__
-- __CADETBLUE4__
-- __CADMIUMORANGE__
-- __CADMIUMYELLOW__
-- __CARROT__
-- __CHARTREUSE1__
-- __CHARTREUSE2__
-- __CHARTREUSE3__
-- __CHARTREUSE4__
-- __CHOCOLATE__
-- __CHOCOLATE1__
-- __CHOCOLATE2__
-- __CHOCOLATE3__
-- __CHOCOLATE4__
-- __COBALT__
-- __COBALTGREEN__
-- __COLDGREY__
-- __CORAL__
-- __CORAL1__
-- __CORAL2__
-- __CORAL3__
-- __CORAL4__
-- __CORNFLOWERBLUE__
-- __CORNSILK1__
-- __CORNSILK2__
-- __CORNSILK3__
-- __CORNSILK4__
-- __CRIMSON__
-- __CYAN2__
-- __CYAN3__
-- __CYAN4__
-- __DARKGOLDENROD__
-- __DARKGOLDENROD1__
-- __DARKGOLDENROD2__
-- __DARKGOLDENROD3__
-- __DARKGOLDENROD4__
-- __DARKGRAY__
-- __DARKGREEN__
-- __DARKKHAKI__
-- __DARKOLIVEGREEN__
-- __DARKOLIVEGREEN1__
-- __DARKOLIVEGREEN2__
-- __DARKOLIVEGREEN3__
-- __DARKOLIVEGREEN4__
-- __DARKORANGE__
-- __DARKORANGE1__
-- __DARKORANGE2__
-- __DARKORANGE3__
-- __DARKORANGE4__
-- __DARKORCHID__
-- __DARKORCHID1__
-- __DARKORCHID2__
-- __DARKORCHID3__
-- __DARKORCHID4__
-- __DARKSALMON__
-- __DARKSEAGREEN__
-- __DARKSEAGREEN1__
-- __DARKSEAGREEN2__
-- __DARKSEAGREEN3__
-- __DARKSEAGREEN4__
-- __DARKSLATEBLUE__
-- __DARKSLATEGRAY__
-- __DARKSLATEGRAY1__
-- __DARKSLATEGRAY2__
-- __DARKSLATEGRAY3__
-- __DARKSLATEGRAY4__
-- __DARKTURQUOISE__
-- __DARKVIOLET__
-- __DEEPPINK1__
-- __DEEPPINK2__
-- __DEEPPINK3__
-- __DEEPPINK4__
-- __DEEPSKYBLUE1__
-- __DEEPSKYBLUE2__
-- __DEEPSKYBLUE3__
-- __DEEPSKYBLUE4__
-- __DIMGRAY__
-- __DIMGRAY__
-- __DODGERBLUE1__
-- __DODGERBLUE2__
-- __DODGERBLUE3__
-- __DODGERBLUE4__
-- __EGGSHELL__
-- __EMERALDGREEN__
-- __FIREBRICK__
-- __FIREBRICK1__
-- __FIREBRICK2__
-- __FIREBRICK3__
-- __FIREBRICK4__
-- __FLESH__
-- __FLORALWHITE__
-- __FORESTGREEN__
-- __GAINSBORO__
-- __GHOSTWHITE__
-- __GOLD1__
-- __GOLD2__
-- __GOLD3__
-- __GOLD4__
-- __GOLDENROD__
-- __GOLDENROD1__
-- __GOLDENROD2__
-- __GOLDENROD3__
-- __GOLDENROD4__
-- __GRAY__
-- __GRAY1__
-- __GRAY10__
-- __GRAY11__
-- __GRAY12__
-- __GRAY13__
-- __GRAY14__
-- __GRAY15__
-- __GRAY16__
-- __GRAY17__
-- __GRAY18__
-- __GRAY19__
-- __GRAY2__
-- __GRAY20__
-- __GRAY21__
-- __GRAY22__
-- __GRAY23__
-- __GRAY24__
-- __GRAY25__
-- __GRAY26__
-- __GRAY27__
-- __GRAY28__
-- __GRAY29__
-- __GRAY3__
-- __GRAY30__
-- __GRAY31__
-- __GRAY32__
-- __GRAY33__
-- __GRAY34__
-- __GRAY35__
-- __GRAY36__
-- __GRAY37__
-- __GRAY38__
-- __GRAY39__
-- __GRAY4__
-- __GRAY40__
-- __GRAY42__
-- __GRAY43__
-- __GRAY44__
-- __GRAY45__
-- __GRAY46__
-- __GRAY47__
-- __GRAY48__
-- __GRAY49__
-- __GRAY5__
-- __GRAY50__
-- __GRAY51__
-- __GRAY52__
-- __GRAY53__
-- __GRAY54__
-- __GRAY55__
-- __GRAY56__
-- __GRAY57__
-- __GRAY58__
-- __GRAY59__
-- __GRAY6__
-- __GRAY60__
-- __GRAY61__
-- __GRAY62__
-- __GRAY63__
-- __GRAY64__
-- __GRAY65__
-- __GRAY66__
-- __GRAY67__
-- __GRAY68__
-- __GRAY69__
-- __GRAY7__
-- __GRAY70__
-- __GRAY71__
-- __GRAY72__
-- __GRAY73__
-- __GRAY74__
-- __GRAY75__
-- __GRAY76__
-- __GRAY77__
-- __GRAY78__
-- __GRAY79__
-- __GRAY8__
-- __GRAY80__
-- __GRAY81__
-- __GRAY82__
-- __GRAY83__
-- __GRAY84__
-- __GRAY85__
-- __GRAY86__
-- __GRAY87__
-- __GRAY88__
-- __GRAY89__
-- __GRAY9__
-- __GRAY90__
-- __GRAY91__
-- __GRAY92__
-- __GRAY93__
-- __GRAY94__
-- __GRAY95__
-- __GRAY97__
-- __GRAY98__
-- __GRAY99__
-- __GREEN__
-- __GREEN1__
-- __GREEN2__
-- __GREEN3__
-- __GREEN4__
-- __GREENYELLOW__
-- __HONEYDEW1__
-- __HONEYDEW2__
-- __HONEYDEW3__
-- __HONEYDEW4__
-- __HOTPINK__
-- __HOTPINK1__
-- __HOTPINK2__
-- __HOTPINK3__
-- __HOTPINK4__
-- __INDIANRED__
-- __INDIANRED__
-- __INDIANRED1__
-- __INDIANRED2__
-- __INDIANRED3__
-- __INDIANRED4__
-- __INDIGO__
-- __IVORY1__
-- __IVORY2__
-- __IVORY3__
-- __IVORY4__
-- __IVORYBLACK__
-- __KHAKI__
-- __KHAKI1__
-- __KHAKI2__
-- __KHAKI3__
-- __KHAKI4__
-- __LAVENDER__
-- __LAVENDERBLUSH1__
-- __LAVENDERBLUSH2__
-- __LAVENDERBLUSH3__
-- __LAVENDERBLUSH4__
-- __LAWNGREEN__
-- __LEMONCHIFFON1__
-- __LEMONCHIFFON2__
-- __LEMONCHIFFON3__
-- __LEMONCHIFFON4__
-- __LIGHTBLUE__
-- __LIGHTBLUE1__
-- __LIGHTBLUE2__
-- __LIGHTBLUE3__
-- __LIGHTBLUE4__
-- __LIGHTCORAL__
-- __LIGHTCYAN1__
-- __LIGHTCYAN2__
-- __LIGHTCYAN3__
-- __LIGHTCYAN4__
-- __LIGHTGOLDENROD1__
-- __LIGHTGOLDENROD2__
-- __LIGHTGOLDENROD3__
-- __LIGHTGOLDENROD4__
-- __LIGHTGOLDENRODYELLOW__
-- __LIGHTGREY__
-- __LIGHTPINK__
-- __LIGHTPINK1__
-- __LIGHTPINK2__
-- __LIGHTPINK3__
-- __LIGHTPINK4__
-- __LIGHTSALMON1__
-- __LIGHTSALMON2__
-- __LIGHTSALMON3__
-- __LIGHTSALMON4__
-- __LIGHTSEAGREEN__
-- __LIGHTSKYBLUE__
-- __LIGHTSKYBLUE1__
-- __LIGHTSKYBLUE2__
-- __LIGHTSKYBLUE3__
-- __LIGHTSKYBLUE4__
-- __LIGHTSLATEBLUE__
-- __LIGHTSLATEGRAY__
-- __LIGHTSTEELBLUE__
-- __LIGHTSTEELBLUE1__
-- __LIGHTSTEELBLUE2__
-- __LIGHTSTEELBLUE3__
-- __LIGHTSTEELBLUE4__
-- __LIGHTYELLOW1__
-- __LIGHTYELLOW2__
-- __LIGHTYELLOW3__
-- __LIGHTYELLOW4__
-- __LIMEGREEN__
-- __LINEN__
-- __MAGENTA__
-- __MAGENTA2__
-- __MAGENTA3__
-- __MAGENTA4__
-- __MANGANESEBLUE__
-- __MAROON__
-- __MAROON1__
-- __MAROON2__
-- __MAROON3__
-- __MAROON4__
-- __MEDIUMORCHID__
-- __MEDIUMORCHID1__
-- __MEDIUMORCHID2__
-- __MEDIUMORCHID3__
-- __MEDIUMORCHID4__
-- __MEDIUMPURPLE__
-- __MEDIUMPURPLE1__
-- __MEDIUMPURPLE2__
-- __MEDIUMPURPLE3__
-- __MEDIUMPURPLE4__
-- __MEDIUMSEAGREEN__
-- __MEDIUMSLATEBLUE__
-- __MEDIUMSPRINGGREEN__
-- __MEDIUMTURQUOISE__
-- __MEDIUMVIOLETRED__
-- __MELON__
-- __MIDNIGHTBLUE__
-- __MINT__
-- __MINTCREAM__
-- __MISTYROSE1__
-- __MISTYROSE2__
-- __MISTYROSE3__
-- __MISTYROSE4__
-- __MOCCASIN__
-- __NAVAJOWHITE1__
-- __NAVAJOWHITE2__
-- __NAVAJOWHITE3__
-- __NAVAJOWHITE4__
-- __NAVY__
-- __OLDLACE__
-- __OLIVE__
-- __OLIVEDRAB__
-- __OLIVEDRAB1__
-- __OLIVEDRAB2__
-- __OLIVEDRAB3__
-- __OLIVEDRAB4__
-- __ORANGE__
-- __ORANGE1__
-- __ORANGE2__
-- __ORANGE3__
-- __ORANGE4__
-- __ORANGERED1__
-- __ORANGERED2__
-- __ORANGERED3__
-- __ORANGERED4__
-- __ORCHID__
-- __ORCHID1__
-- __ORCHID2__
-- __ORCHID3__
-- __ORCHID4__
-- __PALEGOLDENROD__
-- __PALEGREEN__
-- __PALEGREEN1__
-- __PALEGREEN2__
-- __PALEGREEN3__
-- __PALEGREEN4__
-- __PALETURQUOISE1__
-- __PALETURQUOISE2__
-- __PALETURQUOISE3__
-- __PALETURQUOISE4__
-- __PALEVIOLETRED__
-- __PALEVIOLETRED1__
-- __PALEVIOLETRED2__
-- __PALEVIOLETRED3__
-- __PALEVIOLETRED4__
-- __PAPAYAWHIP__
-- __PEACHPUFF1__
-- __PEACHPUFF2__
-- __PEACHPUFF3__
-- __PEACHPUFF4__
-- __PEACOCK__
-- __PINK__
-- __PINK1__
-- __PINK2__
-- __PINK3__
-- __PINK4__
-- __PLUM__
-- __PLUM1__
-- __PLUM2__
-- __PLUM3__
-- __PLUM4__
-- __POWDERBLUE__
-- __PURPLE__
-- __PURPLE1__
-- __PURPLE2__
-- __PURPLE3__
-- __PURPLE4__
-- __RASPBERRY__
-- __RAWSIENNA__
-- __RED1__
-- __RED2__
-- __RED3__
-- __RED4__
-- __ROSYBROWN__
-- __ROSYBROWN1__
-- __ROSYBROWN2__
-- __ROSYBROWN3__
-- __ROSYBROWN4__
-- __ROYALBLUE__
-- __ROYALBLUE1__
-- __ROYALBLUE2__
-- __ROYALBLUE3__
-- __ROYALBLUE4__
-- __SALMON__
-- __SALMON1__
-- __SALMON2__
-- __SALMON3__
-- __SALMON4__
-- __SANDYBROWN__
-- __SAPGREEN__
-- __SEAGREEN1__
-- __SEAGREEN2__
-- __SEAGREEN3__
-- __SEAGREEN4__
-- __SEASHELL1__
-- __SEASHELL2__
-- __SEASHELL3__
-- __SEASHELL4__
-- __SEPIA__
-- __SGIBEET__
-- __SGIBRIGHTGRAY__
-- __SGICHARTREUSE__
-- __SGIDARKGRAY__
-- __SGIGRAY12__
-- __SGIGRAY16__
-- __SGIGRAY32__
-- __SGIGRAY36__
-- __SGIGRAY52__
-- __SGIGRAY56__
-- __SGIGRAY72__
-- __SGIGRAY76__
-- __SGIGRAY92__
-- __SGIGRAY96__
-- __SGILIGHTBLUE__
-- __SGILIGHTGRAY__
-- __SGIOLIVEDRAB__
-- __SGISALMON__
-- __SGISLATEBLUE__
-- __SGITEAL__
-- __SIENNA__
-- __SIENNA1__
-- __SIENNA2__
-- __SIENNA3__
-- __SIENNA4__
-- __SILVER__
-- __SKYBLUE__
-- __SKYBLUE1__
-- __SKYBLUE2__
-- __SKYBLUE3__
-- __SKYBLUE4__
-- __SLATEBLUE__
-- __SLATEBLUE1__
-- __SLATEBLUE2__
-- __SLATEBLUE3__
-- __SLATEBLUE4__
-- __SLATEGRAY__
-- __SLATEGRAY1__
-- __SLATEGRAY2__
-- __SLATEGRAY3__
-- __SLATEGRAY4__
-- __SNOW1__
-- __SNOW2__
-- __SNOW3__
-- __SNOW4__
-- __SPRINGGREEN__
-- __SPRINGGREEN1__
-- __SPRINGGREEN2__
-- __SPRINGGREEN3__
-- __STEELBLUE__
-- __STEELBLUE1__
-- __STEELBLUE2__
-- __STEELBLUE3__
-- __STEELBLUE4__
-- __TAN__
-- __TAN1__
-- __TAN2__
-- __TAN3__
-- __TAN4__
-- __TEAL__
-- __THISTLE__
-- __THISTLE1__
-- __THISTLE2__
-- __THISTLE3__
-- __THISTLE4__
-- __TOMATO1__
-- __TOMATO2__
-- __TOMATO3__
-- __TOMATO4__
-- __TURQUOISE__
-- __TURQUOISE1__
-- __TURQUOISE2__
-- __TURQUOISE3__
-- __TURQUOISE4__
-- __TURQUOISEBLUE__
-- __VIOLET__
-- __VIOLETRED__
-- __VIOLETRED1__
-- __VIOLETRED2__
-- __VIOLETRED3__
-- __VIOLETRED4__
-- __WARMGREY__
-- __WHEAT__
-- __WHEAT1__
-- __WHEAT2__
-- __WHEAT3__
-- __WHEAT4__
-- __WHITE__
-- __WHITESMOKE__
-- __WHITESMOKE__
-- __YELLOW1__
-- __YELLOW2__
-- __YELLOW3__
-- __YELLOW4__
-
-
+\
+\
+<li><b>ALICEBLUE</b></li>
+<li><b>ANTIQUEWHITE</b></li>
+<li><b>ANTIQUEWHITE1</b></li>
+<li><b>ANTIQUEWHITE2</b></li>
+<li><b>ANTIQUEWHITE3</b></li>
+<li><b>ANTIQUEWHITE4</b></li>
+<li><b>AQUA</b></li>
+<li><b>AQUAMARINE1</b></li>
+<li><b>AQUAMARINE2</b></li>
+<li><b>AQUAMARINE3</b></li>
+<li><b>AQUAMARINE4</b></li>
+<li><b>AZURE1</b></li>
+<li><b>AZURE2</b></li>
+<li><b>AZURE3</b></li>
+<li><b>AZURE4</b></li>
+<li><b>BANANA</b></li>
+<li><b>BEIGE</b></li>
+<li><b>BISQUE1</b></li>
+<li><b>BISQUE2</b></li>
+<li><b>BISQUE3</b></li>
+<li><b>BISQUE4</b></li>
+<li><b>BLACK</b></li>
+<li><b>BLANCHEDALMOND</b></li>
+<li><b>BLUE</b></li>
+<li><b>BLUE2</b></li>
+<li><b>BLUE3</b></li>
+<li><b>BLUE4</b></li>
+<li><b>BLUEVIOLET</b></li>
+<li><b>BRICK</b></li>
+<li><b>BROWN</b></li>
+<li><b>BROWN1</b></li>
+<li><b>BROWN2</b></li>
+<li><b>BROWN3</b></li>
+<li><b>BROWN4</b></li>
+<li><b>BURLYWOOD</b></li>
+<li><b>BURLYWOOD1</b></li>
+<li><b>BURLYWOOD2</b></li>
+<li><b>BURLYWOOD3</b></li>
+<li><b>BURLYWOOD4</b></li>
+<li><b>BURNTSIENNA</b></li>
+<li><b>BURNTUMBER</b></li>
+<li><b>CADETBLUE</b></li>
+<li><b>CADETBLUE1</b></li>
+<li><b>CADETBLUE2</b></li>
+<li><b>CADETBLUE3</b></li>
+<li><b>CADETBLUE4</b></li>
+<li><b>CADMIUMORANGE</b></li>
+<li><b>CADMIUMYELLOW</b></li>
+<li><b>CARROT</b></li>
+<li><b>CHARTREUSE1</b></li>
+<li><b>CHARTREUSE2</b></li>
+<li><b>CHARTREUSE3</b></li>
+<li><b>CHARTREUSE4</b></li>
+<li><b>CHOCOLATE</b></li>
+<li><b>CHOCOLATE1</b></li>
+<li><b>CHOCOLATE2</b></li>
+<li><b>CHOCOLATE3</b></li>
+<li><b>CHOCOLATE4</b></li>
+<li><b>COBALT</b></li>
+<li><b>COBALTGREEN</b></li>
+<li><b>COLDGREY</b></li>
+<li><b>CORAL</b></li>
+<li><b>CORAL1</b></li>
+<li><b>CORAL2</b></li>
+<li><b>CORAL3</b></li>
+<li><b>CORAL4</b></li>
+<li><b>CORNFLOWERBLUE</b></li>
+<li><b>CORNSILK1</b></li>
+<li><b>CORNSILK2</b></li>
+<li><b>CORNSILK3</b></li>
+<li><b>CORNSILK4</b></li>
+<li><b>CRIMSON</b></li>
+<li><b>CYAN2</b></li>
+<li><b>CYAN3</b></li>
+<li><b>CYAN4</b></li>
+<li><b>DARKGOLDENROD</b></li>
+<li><b>DARKGOLDENROD1</b></li>
+<li><b>DARKGOLDENROD2</b></li>
+<li><b>DARKGOLDENROD3</b></li>
+<li><b>DARKGOLDENROD4</b></li>
+<li><b>DARKGRAY</b></li>
+<li><b>DARKGREEN</b></li>
+<li><b>DARKKHAKI</b></li>
+<li><b>DARKOLIVEGREEN</b></li>
+<li><b>DARKOLIVEGREEN1</b></li>
+<li><b>DARKOLIVEGREEN2</b></li>
+<li><b>DARKOLIVEGREEN3</b></li>
+<li><b>DARKOLIVEGREEN4</b></li>
+<li><b>DARKORANGE</b></li>
+<li><b>DARKORANGE1</b></li>
+<li><b>DARKORANGE2</b></li>
+<li><b>DARKORANGE3</b></li>
+<li><b>DARKORANGE4</b></li>
+<li><b>DARKORCHID</b></li>
+<li><b>DARKORCHID1</b></li>
+<li><b>DARKORCHID2</b></li>
+<li><b>DARKORCHID3</b></li>
+<li><b>DARKORCHID4</b></li>
+<li><b>DARKSALMON</b></li>
+<li><b>DARKSEAGREEN</b></li>
+<li><b>DARKSEAGREEN1</b></li>
+<li><b>DARKSEAGREEN2</b></li>
+<li><b>DARKSEAGREEN3</b></li>
+<li><b>DARKSEAGREEN4</b></li>
+<li><b>DARKSLATEBLUE</b></li>
+<li><b>DARKSLATEGRAY</b></li>
+<li><b>DARKSLATEGRAY1</b></li>
+<li><b>DARKSLATEGRAY2</b></li>
+<li><b>DARKSLATEGRAY3</b></li>
+<li><b>DARKSLATEGRAY4</b></li>
+<li><b>DARKTURQUOISE</b></li>
+<li><b>DARKVIOLET</b></li>
+<li><b>DEEPPINK1</b></li>
+<li><b>DEEPPINK2</b></li>
+<li><b>DEEPPINK3</b></li>
+<li><b>DEEPPINK4</b></li>
+<li><b>DEEPSKYBLUE1</b></li>
+<li><b>DEEPSKYBLUE2</b></li>
+<li><b>DEEPSKYBLUE3</b></li>
+<li><b>DEEPSKYBLUE4</b></li>
+<li><b>DIMGRAY</b></li>
+<li><b>DIMGRAY</b></li>
+<li><b>DODGERBLUE1</b></li>
+<li><b>DODGERBLUE2</b></li>
+<li><b>DODGERBLUE3</b></li>
+<li><b>DODGERBLUE4</b></li>
+<li><b>EGGSHELL</b></li>
+<li><b>EMERALDGREEN</b></li>
+<li><b>FIREBRICK</b></li>
+<li><b>FIREBRICK1</b></li>
+<li><b>FIREBRICK2</b></li>
+<li><b>FIREBRICK3</b></li>
+<li><b>FIREBRICK4</b></li>
+<li><b>FLESH</b></li>
+<li><b>FLORALWHITE</b></li>
+<li><b>FORESTGREEN</b></li>
+<li><b>GAINSBORO</b></li>
+<li><b>GHOSTWHITE</b></li>
+<li><b>GOLD1</b></li>
+<li><b>GOLD2</b></li>
+<li><b>GOLD3</b></li>
+<li><b>GOLD4</b></li>
+<li><b>GOLDENROD</b></li>
+<li><b>GOLDENROD1</b></li>
+<li><b>GOLDENROD2</b></li>
+<li><b>GOLDENROD3</b></li>
+<li><b>GOLDENROD4</b></li>
+<li><b>GRAY</b></li>
+<li><b>GRAY1</b></li>
+<li><b>GRAY10</b></li>
+<li><b>GRAY11</b></li>
+<li><b>GRAY12</b></li>
+<li><b>GRAY13</b></li>
+<li><b>GRAY14</b></li>
+<li><b>GRAY15</b></li>
+<li><b>GRAY16</b></li>
+<li><b>GRAY17</b></li>
+<li><b>GRAY18</b></li>
+<li><b>GRAY19</b></li>
+<li><b>GRAY2</b></li>
+<li><b>GRAY20</b></li>
+<li><b>GRAY21</b></li>
+<li><b>GRAY22</b></li>
+<li><b>GRAY23</b></li>
+<li><b>GRAY24</b></li>
+<li><b>GRAY25</b></li>
+<li><b>GRAY26</b></li>
+<li><b>GRAY27</b></li>
+<li><b>GRAY28</b></li>
+<li><b>GRAY29</b></li>
+<li><b>GRAY3</b></li>
+<li><b>GRAY30</b></li>
+<li><b>GRAY31</b></li>
+<li><b>GRAY32</b></li>
+<li><b>GRAY33</b></li>
+<li><b>GRAY34</b></li>
+<li><b>GRAY35</b></li>
+<li><b>GRAY36</b></li>
+<li><b>GRAY37</b></li>
+<li><b>GRAY38</b></li>
+<li><b>GRAY39</b></li>
+<li><b>GRAY4</b></li>
+<li><b>GRAY40</b></li>
+<li><b>GRAY42</b></li>
+<li><b>GRAY43</b></li>
+<li><b>GRAY44</b></li>
+<li><b>GRAY45</b></li>
+<li><b>GRAY46</b></li>
+<li><b>GRAY47</b></li>
+<li><b>GRAY48</b></li>
+<li><b>GRAY49</b></li>
+<li><b>GRAY5</b></li>
+<li><b>GRAY50</b></li>
+<li><b>GRAY51</b></li>
+<li><b>GRAY52</b></li>
+<li><b>GRAY53</b></li>
+<li><b>GRAY54</b></li>
+<li><b>GRAY55</b></li>
+<li><b>GRAY56</b></li>
+<li><b>GRAY57</b></li>
+<li><b>GRAY58</b></li>
+<li><b>GRAY59</b></li>
+<li><b>GRAY6</b></li>
+<li><b>GRAY60</b></li>
+<li><b>GRAY61</b></li>
+<li><b>GRAY62</b></li>
+<li><b>GRAY63</b></li>
+<li><b>GRAY64</b></li>
+<li><b>GRAY65</b></li>
+<li><b>GRAY66</b></li>
+<li><b>GRAY67</b></li>
+<li><b>GRAY68</b></li>
+<li><b>GRAY69</b></li>
+<li><b>GRAY7</b></li>
+<li><b>GRAY70</b></li>
+<li><b>GRAY71</b></li>
+<li><b>GRAY72</b></li>
+<li><b>GRAY73</b></li>
+<li><b>GRAY74</b></li>
+<li><b>GRAY75</b></li>
+<li><b>GRAY76</b></li>
+<li><b>GRAY77</b></li>
+<li><b>GRAY78</b></li>
+<li><b>GRAY79</b></li>
+<li><b>GRAY8</b></li>
+<li><b>GRAY80</b></li>
+<li><b>GRAY81</b></li>
+<li><b>GRAY82</b></li>
+<li><b>GRAY83</b></li>
+<li><b>GRAY84</b></li>
+<li><b>GRAY85</b></li>
+<li><b>GRAY86</b></li>
+<li><b>GRAY87</b></li>
+<li><b>GRAY88</b></li>
+<li><b>GRAY89</b></li>
+<li><b>GRAY9</b></li>
+<li><b>GRAY90</b></li>
+<li><b>GRAY91</b></li>
+<li><b>GRAY92</b></li>
+<li><b>GRAY93</b></li>
+<li><b>GRAY94</b></li>
+<li><b>GRAY95</b></li>
+<li><b>GRAY97</b></li>
+<li><b>GRAY98</b></li>
+<li><b>GRAY99</b></li>
+<li><b>GREEN</b></li>
+<li><b>GREEN1</b></li>
+<li><b>GREEN2</b></li>
+<li><b>GREEN3</b></li>
+<li><b>GREEN4</b></li>
+<li><b>GREENYELLOW</b></li>
+<li><b>HONEYDEW1</b></li>
+<li><b>HONEYDEW2</b></li>
+<li><b>HONEYDEW3</b></li>
+<li><b>HONEYDEW4</b></li>
+<li><b>HOTPINK</b></li>
+<li><b>HOTPINK1</b></li>
+<li><b>HOTPINK2</b></li>
+<li><b>HOTPINK3</b></li>
+<li><b>HOTPINK4</b></li>
+<li><b>INDIANRED</b></li>
+<li><b>INDIANRED</b></li>
+<li><b>INDIANRED1</b></li>
+<li><b>INDIANRED2</b></li>
+<li><b>INDIANRED3</b></li>
+<li><b>INDIANRED4</b></li>
+<li><b>INDIGO</b></li>
+<li><b>IVORY1</b></li>
+<li><b>IVORY2</b></li>
+<li><b>IVORY3</b></li>
+<li><b>IVORY4</b></li>
+<li><b>IVORYBLACK</b></li>
+<li><b>KHAKI</b></li>
+<li><b>KHAKI1</b></li>
+<li><b>KHAKI2</b></li>
+<li><b>KHAKI3</b></li>
+<li><b>KHAKI4</b></li>
+<li><b>LAVENDER</b></li>
+<li><b>LAVENDERBLUSH1</b></li>
+<li><b>LAVENDERBLUSH2</b></li>
+<li><b>LAVENDERBLUSH3</b></li>
+<li><b>LAVENDERBLUSH4</b></li>
+<li><b>LAWNGREEN</b></li>
+<li><b>LEMONCHIFFON1</b></li>
+<li><b>LEMONCHIFFON2</b></li>
+<li><b>LEMONCHIFFON3</b></li>
+<li><b>LEMONCHIFFON4</b></li>
+<li><b>LIGHTBLUE</b></li>
+<li><b>LIGHTBLUE1</b></li>
+<li><b>LIGHTBLUE2</b></li>
+<li><b>LIGHTBLUE3</b></li>
+<li><b>LIGHTBLUE4</b></li>
+<li><b>LIGHTCORAL</b></li>
+<li><b>LIGHTCYAN1</b></li>
+<li><b>LIGHTCYAN2</b></li>
+<li><b>LIGHTCYAN3</b></li>
+<li><b>LIGHTCYAN4</b></li>
+<li><b>LIGHTGOLDENROD1</b></li>
+<li><b>LIGHTGOLDENROD2</b></li>
+<li><b>LIGHTGOLDENROD3</b></li>
+<li><b>LIGHTGOLDENROD4</b></li>
+<li><b>LIGHTGOLDENRODYELLOW</b></li>
+<li><b>LIGHTGREY</b></li>
+<li><b>LIGHTPINK</b></li>
+<li><b>LIGHTPINK1</b></li>
+<li><b>LIGHTPINK2</b></li>
+<li><b>LIGHTPINK3</b></li>
+<li><b>LIGHTPINK4</b></li>
+<li><b>LIGHTSALMON1</b></li>
+<li><b>LIGHTSALMON2</b></li>
+<li><b>LIGHTSALMON3</b></li>
+<li><b>LIGHTSALMON4</b></li>
+<li><b>LIGHTSEAGREEN</b></li>
+<li><b>LIGHTSKYBLUE</b></li>
+<li><b>LIGHTSKYBLUE1</b></li>
+<li><b>LIGHTSKYBLUE2</b></li>
+<li><b>LIGHTSKYBLUE3</b></li>
+<li><b>LIGHTSKYBLUE4</b></li>
+<li><b>LIGHTSLATEBLUE</b></li>
+<li><b>LIGHTSLATEGRAY</b></li>
+<li><b>LIGHTSTEELBLUE</b></li>
+<li><b>LIGHTSTEELBLUE1</b></li>
+<li><b>LIGHTSTEELBLUE2</b></li>
+<li><b>LIGHTSTEELBLUE3</b></li>
+<li><b>LIGHTSTEELBLUE4</b></li>
+<li><b>LIGHTYELLOW1</b></li>
+<li><b>LIGHTYELLOW2</b></li>
+<li><b>LIGHTYELLOW3</b></li>
+<li><b>LIGHTYELLOW4</b></li>
+<li><b>LIMEGREEN</b></li>
+<li><b>LINEN</b></li>
+<li><b>MAGENTA</b></li>
+<li><b>MAGENTA2</b></li>
+<li><b>MAGENTA3</b></li>
+<li><b>MAGENTA4</b></li>
+<li><b>MANGANESEBLUE</b></li>
+<li><b>MAROON</b></li>
+<li><b>MAROON1</b></li>
+<li><b>MAROON2</b></li>
+<li><b>MAROON3</b></li>
+<li><b>MAROON4</b></li>
+<li><b>MEDIUMORCHID</b></li>
+<li><b>MEDIUMORCHID1</b></li>
+<li><b>MEDIUMORCHID2</b></li>
+<li><b>MEDIUMORCHID3</b></li>
+<li><b>MEDIUMORCHID4</b></li>
+<li><b>MEDIUMPURPLE</b></li>
+<li><b>MEDIUMPURPLE1</b></li>
+<li><b>MEDIUMPURPLE2</b></li>
+<li><b>MEDIUMPURPLE3</b></li>
+<li><b>MEDIUMPURPLE4</b></li>
+<li><b>MEDIUMSEAGREEN</b></li>
+<li><b>MEDIUMSLATEBLUE</b></li>
+<li><b>MEDIUMSPRINGGREEN</b></li>
+<li><b>MEDIUMTURQUOISE</b></li>
+<li><b>MEDIUMVIOLETRED</b></li>
+<li><b>MELON</b></li>
+<li><b>MIDNIGHTBLUE</b></li>
+<li><b>MINT</b></li>
+<li><b>MINTCREAM</b></li>
+<li><b>MISTYROSE1</b></li>
+<li><b>MISTYROSE2</b></li>
+<li><b>MISTYROSE3</b></li>
+<li><b>MISTYROSE4</b></li>
+<li><b>MOCCASIN</b></li>
+<li><b>NAVAJOWHITE1</b></li>
+<li><b>NAVAJOWHITE2</b></li>
+<li><b>NAVAJOWHITE3</b></li>
+<li><b>NAVAJOWHITE4</b></li>
+<li><b>NAVY</b></li>
+<li><b>OLDLACE</b></li>
+<li><b>OLIVE</b></li>
+<li><b>OLIVEDRAB</b></li>
+<li><b>OLIVEDRAB1</b></li>
+<li><b>OLIVEDRAB2</b></li>
+<li><b>OLIVEDRAB3</b></li>
+<li><b>OLIVEDRAB4</b></li>
+<li><b>ORANGE</b></li>
+<li><b>ORANGE1</b></li>
+<li><b>ORANGE2</b></li>
+<li><b>ORANGE3</b></li>
+<li><b>ORANGE4</b></li>
+<li><b>ORANGERED1</b></li>
+<li><b>ORANGERED2</b></li>
+<li><b>ORANGERED3</b></li>
+<li><b>ORANGERED4</b></li>
+<li><b>ORCHID</b></li>
+<li><b>ORCHID1</b></li>
+<li><b>ORCHID2</b></li>
+<li><b>ORCHID3</b></li>
+<li><b>ORCHID4</b></li>
+<li><b>PALEGOLDENROD</b></li>
+<li><b>PALEGREEN</b></li>
+<li><b>PALEGREEN1</b></li>
+<li><b>PALEGREEN2</b></li>
+<li><b>PALEGREEN3</b></li>
+<li><b>PALEGREEN4</b></li>
+<li><b>PALETURQUOISE1</b></li>
+<li><b>PALETURQUOISE2</b></li>
+<li><b>PALETURQUOISE3</b></li>
+<li><b>PALETURQUOISE4</b></li>
+<li><b>PALEVIOLETRED</b></li>
+<li><b>PALEVIOLETRED1</b></li>
+<li><b>PALEVIOLETRED2</b></li>
+<li><b>PALEVIOLETRED3</b></li>
+<li><b>PALEVIOLETRED4</b></li>
+<li><b>PAPAYAWHIP</b></li>
+<li><b>PEACHPUFF1</b></li>
+<li><b>PEACHPUFF2</b></li>
+<li><b>PEACHPUFF3</b></li>
+<li><b>PEACHPUFF4</b></li>
+<li><b>PEACOCK</b></li>
+<li><b>PINK</b></li>
+<li><b>PINK1</b></li>
+<li><b>PINK2</b></li>
+<li><b>PINK3</b></li>
+<li><b>PINK4</b></li>
+<li><b>PLUM</b></li>
+<li><b>PLUM1</b></li>
+<li><b>PLUM2</b></li>
+<li><b>PLUM3</b></li>
+<li><b>PLUM4</b></li>
+<li><b>POWDERBLUE</b></li>
+<li><b>PURPLE</b></li>
+<li><b>PURPLE1</b></li>
+<li><b>PURPLE2</b></li>
+<li><b>PURPLE3</b></li>
+<li><b>PURPLE4</b></li>
+<li><b>RASPBERRY</b></li>
+<li><b>RAWSIENNA</b></li>
+<li><b>RED1</b></li>
+<li><b>RED2</b></li>
+<li><b>RED3</b></li>
+<li><b>RED4</b></li>
+<li><b>ROSYBROWN</b></li>
+<li><b>ROSYBROWN1</b></li>
+<li><b>ROSYBROWN2</b></li>
+<li><b>ROSYBROWN3</b></li>
+<li><b>ROSYBROWN4</b></li>
+<li><b>ROYALBLUE</b></li>
+<li><b>ROYALBLUE1</b></li>
+<li><b>ROYALBLUE2</b></li>
+<li><b>ROYALBLUE3</b></li>
+<li><b>ROYALBLUE4</b></li>
+<li><b>SALMON</b></li>
+<li><b>SALMON1</b></li>
+<li><b>SALMON2</b></li>
+<li><b>SALMON3</b></li>
+<li><b>SALMON4</b></li>
+<li><b>SANDYBROWN</b></li>
+<li><b>SAPGREEN</b></li>
+<li><b>SEAGREEN1</b></li>
+<li><b>SEAGREEN2</b></li>
+<li><b>SEAGREEN3</b></li>
+<li><b>SEAGREEN4</b></li>
+<li><b>SEASHELL1</b></li>
+<li><b>SEASHELL2</b></li>
+<li><b>SEASHELL3</b></li>
+<li><b>SEASHELL4</b></li>
+<li><b>SEPIA</b></li>
+<li><b>SGIBEET</b></li>
+<li><b>SGIBRIGHTGRAY</b></li>
+<li><b>SGICHARTREUSE</b></li>
+<li><b>SGIDARKGRAY</b></li>
+<li><b>SGIGRAY12</b></li>
+<li><b>SGIGRAY16</b></li>
+<li><b>SGIGRAY32</b></li>
+<li><b>SGIGRAY36</b></li>
+<li><b>SGIGRAY52</b></li>
+<li><b>SGIGRAY56</b></li>
+<li><b>SGIGRAY72</b></li>
+<li><b>SGIGRAY76</b></li>
+<li><b>SGIGRAY92</b></li>
+<li><b>SGIGRAY96</b></li>
+<li><b>SGILIGHTBLUE</b></li>
+<li><b>SGILIGHTGRAY</b></li>
+<li><b>SGIOLIVEDRAB</b></li>
+<li><b>SGISALMON</b></li>
+<li><b>SGISLATEBLUE</b></li>
+<li><b>SGITEAL</b></li>
+<li><b>SIENNA</b></li>
+<li><b>SIENNA1</b></li>
+<li><b>SIENNA2</b></li>
+<li><b>SIENNA3</b></li>
+<li><b>SIENNA4</b></li>
+<li><b>SILVER</b></li>
+<li><b>SKYBLUE</b></li>
+<li><b>SKYBLUE1</b></li>
+<li><b>SKYBLUE2</b></li>
+<li><b>SKYBLUE3</b></li>
+<li><b>SKYBLUE4</b></li>
+<li><b>SLATEBLUE</b></li>
+<li><b>SLATEBLUE1</b></li>
+<li><b>SLATEBLUE2</b></li>
+<li><b>SLATEBLUE3</b></li>
+<li><b>SLATEBLUE4</b></li>
+<li><b>SLATEGRAY</b></li>
+<li><b>SLATEGRAY1</b></li>
+<li><b>SLATEGRAY2</b></li>
+<li><b>SLATEGRAY3</b></li>
+<li><b>SLATEGRAY4</b></li>
+<li><b>SNOW1</b></li>
+<li><b>SNOW2</b></li>
+<li><b>SNOW3</b></li>
+<li><b>SNOW4</b></li>
+<li><b>SPRINGGREEN</b></li>
+<li><b>SPRINGGREEN1</b></li>
+<li><b>SPRINGGREEN2</b></li>
+<li><b>SPRINGGREEN3</b></li>
+<li><b>STEELBLUE</b></li>
+<li><b>STEELBLUE1</b></li>
+<li><b>STEELBLUE2</b></li>
+<li><b>STEELBLUE3</b></li>
+<li><b>STEELBLUE4</b></li>
+<li><b>TAN</b></li>
+<li><b>TAN1</b></li>
+<li><b>TAN2</b></li>
+<li><b>TAN3</b></li>
+<li><b>TAN4</b></li>
+<li><b>TEAL</b></li>
+<li><b>THISTLE</b></li>
+<li><b>THISTLE1</b></li>
+<li><b>THISTLE2</b></li>
+<li><b>THISTLE3</b></li>
+<li><b>THISTLE4</b></li>
+<li><b>TOMATO1</b></li>
+<li><b>TOMATO2</b></li>
+<li><b>TOMATO3</b></li>
+<li><b>TOMATO4</b></li>
+<li><b>TURQUOISE</b></li>
+<li><b>TURQUOISE1</b></li>
+<li><b>TURQUOISE2</b></li>
+<li><b>TURQUOISE3</b></li>
+<li><b>TURQUOISE4</b></li>
+<li><b>TURQUOISEBLUE</b></li>
+<li><b>VIOLET</b></li>
+<li><b>VIOLETRED</b></li>
+<li><b>VIOLETRED1</b></li>
+<li><b>VIOLETRED2</b></li>
+<li><b>VIOLETRED3</b></li>
+<li><b>VIOLETRED4</b></li>
+<li><b>WARMGREY</b></li>
+<li><b>WHEAT</b></li>
+<li><b>WHEAT1</b></li>
+<li><b>WHEAT2</b></li>
+<li><b>WHEAT3</b></li>
+<li><b>WHEAT4</b></li>
+<li><b>WHITE</b></li>
+<li><b>WHITESMOKE</b></li>
+<li><b>WHITESMOKE</b></li>
+<li><b>YELLOW1</b></li>
+<li><b>YELLOW2</b></li>
+<li><b>YELLOW3</b></li>
+<li><b>YELLOW4</b></li>
+\
+\
 </details>
