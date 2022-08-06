@@ -6,9 +6,11 @@ import pygame
 from pygame.locals import *
 import time, random
 import warnings
-import color
+from pygame import mixer
+import allcolors as color
 
 pygame.init()
+mixer.init()
 
 windows = []
 players = []
@@ -172,7 +174,7 @@ class sprite:
             if self.k_pressed[K_RIGHT]:
                 self.VEL[0] += self.ACC
             self.VEL[0] *= self.FRIC
-            self.rect.move_ip(VEL[0], VEL[1])
+            self.rect.move_ip(self.VEL[0], self.VEL[1])
             
         def draw(self, game):
             """
@@ -278,5 +280,13 @@ class sprite:
         def returntitle(self):
             return self.title
 
-
-
+class Audio:
+    def __init__(self, file, volume=0.7):
+        mixer.music.load(file)
+        mixer.music.set_volume(volume)
+    def play(self):
+        mixer.music.play()
+    def pause(self):
+        mixer.music.pause()
+    def unpause(self):
+        mixer.music.unpause()
