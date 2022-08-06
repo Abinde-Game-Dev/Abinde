@@ -1,9 +1,5 @@
 pygame>=2.1.2
 pillow
-allcolors
-
-[:python_version == "3.8"]
-importlib-metadata
 
 [:python_version >= "3.8"]
 importlib-metadata

@@ -1,9 +1,0 @@
-[project]
-name = "Abinde"
-version = "1.9.3"
-dependencies = [
-    "pygame>=2.1.2",
-    "pillow",
-    "allcolors",
-    'importlib-metadata; python_version == "3.8"',
-    ]

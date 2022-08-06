@@ -2,11 +2,10 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.9.3',
+    version='1.9.5',
     install_requires=[
         'pygame>=2.1.2',
         'importlib-metadata; python_version >= "3.8"',
-        'allcolors',
         'pillow',
     ],
     url="https://github.com/desvasicek/Abinde",
