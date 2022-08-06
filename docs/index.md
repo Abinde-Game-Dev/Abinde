@@ -86,8 +86,8 @@ _Not Documented Yet._
 ## Colors
 
 <details><summary>All Colors (ABC Order)</summary>
-\
-\
+
+
 <li><b>ALICEBLUE</b></li>
 <li><b>ANTIQUEWHITE</b></li>
 <li><b>ANTIQUEWHITE1</b></li>
@@ -642,6 +642,6 @@ _Not Documented Yet._
 <li><b>YELLOW2</b></li>
 <li><b>YELLOW3</b></li>
 <li><b>YELLOW4</b></li>
-\
-\
+
+
 </details>
