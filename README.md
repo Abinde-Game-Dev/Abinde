@@ -51,7 +51,7 @@ game.mainloop()
 
 | Raspberry Pi OS | Debian Linux    | Mac             |
 |-----------------|-----------------|-----------------|
-| Stable (v1.9.1) | Stable (v1.9)   | Stable (v1.1)   |
+| Stable (v1.9.1) | Stable (v1.9)   | Stable (v1.9.6)   |
 
 ## Please Note
 
