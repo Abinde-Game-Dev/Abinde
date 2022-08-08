@@ -20,8 +20,6 @@
 
 Abinde is a python module for pygame.
 
-Leave a comment/rating [__here__](https://github.com/desvasicek/Abinde/discussions/8).
-
 ## Advantages
 
 - Easy to use
