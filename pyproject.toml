@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "Abinde"
+version = "1.9.7"
+authors = [
+  { name="desvasicek", email="84301435+desvasicek@users.noreply.github.com" },
+]
+description = "Abinde is an easy-to-use python module for pygame."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers=[
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Games/Entertainment",
+    "Topic :: Utilities",
+    "Intended Audience :: Developers",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Abinde-Game-Dev/Abinde"
+"Bug Tracker" = "https://github.com/Abinde-Game-Dev/Abinde/issues"

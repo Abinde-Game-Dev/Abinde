@@ -701,8 +701,6 @@ class Game(object):
         self.loop()
         
 
-# DO NOT USE
-
 class sprite:
     class Player(pygame.sprite.Sprite):
         """
@@ -766,23 +764,19 @@ class sprite:
             players.remove(self)
             del self
 
-            
+
+         # DO NOT USE
+         
     class Enemy(pygame.sprite.Sprite):
         """
         Enemy object that can hurt the player
         """
-        def __init__(self):
+        def __init__(self, image, pos=[20, 20], title="Enemy", FRIC=0.9, ACC=1, GRAV=1, jumpheight=10):
             super().__init__()
             global enemies
             enemies.add(self)
 
-            
-    class Animal(pygame.sprite.Sprite):
-        """
-        Animal object that wanders around.
-        """
-        def __init__(self):
-            super().__init__()
+        # END DO NOT USE
 
             
     class Object(pygame.sprite.Sprite):
@@ -801,8 +795,6 @@ class sprite:
             self.rect.center = self.pos
         def draw(self, game):
             game.root.blit(self.image, self.rect)
-
-# END DO NOT USE
 
             
     class Rectangle(object):
