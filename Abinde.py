@@ -16,6 +16,7 @@ windows = []
 players = []
 drawings = []
 _text = []
+_objects = []
 
 warnings.simplefilter("once")
 
@@ -25,6 +26,7 @@ objects = pygame.sprite.Group()
 game_quit = False
 
 class color:
+    """All the colors"""
     ALICEBLUE = (240, 248, 255)
     ANTIQUEWHITE = (250, 235, 215)
     ANTIQUEWHITE1 = (255, 239, 219)
@@ -624,6 +626,9 @@ class error:
     class SetModeError(Exception):
         def __init__(self):
             super().__init__("Only options 'PIL' and 'pygame' are supported.")
+    class JumpError(Exception):
+        def __init__(self):
+            super().__init__("Jump height must be less than 150.")
 
 class warn:
     
@@ -677,15 +682,14 @@ class Game(object):
                         player.draw(self)
                     for drawing in drawings:
                         drawing.draw(self)
+                    for _object in _objects:
+                        _object.draw(self)
                     for text in _text:
                         text.draw(self)
-                    try:
-                        pygame.display.flip()
-                        self.fps.tick(60)
-                    except:
-                        pass
-        except:
-             pass
+                    pygame.display.flip()
+                    self.fps.tick(60)
+        except Exception as e:
+             print(e)
 
     def mainloop(self):
         """
@@ -704,7 +708,7 @@ class sprite:
         """
         User-playable object
         """
-        def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1):
+        def __init__(self, image, pos=[20, 20], title="Sprite", FRIC=0.9, ACC=1, GRAV=1, jumpheight=10):
             super().__init__()
             global players
             players.append(self)
@@ -719,33 +723,42 @@ class sprite:
             self.VEL = [0, 0]
             self.ACC = ACC
             self.FRIC = FRIC
+            self.GRAV = GRAV
             self.pos = pos
+            if not jumpheight > 150:
+                self.jumpheight = jumpheight
+            else:
+                raise error.JumpError
             self.rect.center = self.pos
+            self.falling = True
             
         def move(self):
             """
             Not for development use.
             """
-            try:
-                self.k_pressed = pygame.key.get_pressed()
-            except:
-                pass
+            self.k_pressed = pygame.key.get_pressed()
             if self.k_pressed[K_LEFT]:
                 self.VEL[0] -= self.ACC
             if self.k_pressed[K_RIGHT]:
                 self.VEL[0] += self.ACC
+            if self.k_pressed[K_UP]:
+                if not self.falling:
+                    self.VEL[1] = -self.jumpheight
+                    self.falling = True
             self.VEL[0] *= self.FRIC
+            self.VEL[1] += self.GRAV
+            if pygame.sprite.spritecollideany(self, objects):
+                if self.VEL[1] > 0:
+                    self.VEL[1] = 0
+                    self.falling = False
             self.rect.move_ip(self.VEL[0], self.VEL[1])
             
         def draw(self, game):
             """
             Not for development use.
             """
-            try:
-                game.root.blit(self.image, self.rect)
-            except:
-                pass
-            
+            game.root.blit(self.image, self.rect)
+                
         def kill(self):
             """
             Remove the sprite
@@ -776,10 +789,18 @@ class sprite:
         """
         Platforms.
         """
-        def __init__(self):
+        def __init__(self, image, pos=[20, 20], title="Object"):
             super().__init__()
-            global objects
+            global objects, _objects
             objects.add(self)
+            _objects.append(self)
+            self.image = image
+            self.pos = pos
+            self.title = title
+            self.rect = self.image.get_rect()
+            self.rect.center = self.pos
+        def draw(self, game):
+            game.root.blit(self.image, self.rect)
 
 # END DO NOT USE
 
@@ -866,3 +887,8 @@ class Audio:
         mixer.music.unpause()
 
 
+
+game = Game(width=1000, height=1000)
+player = sprite.Player(LoadImage("Abinde.png"), jumpheight=150, ACC=6, FRIC=.9)
+_object = sprite.Object(LoadImage("Abinde.png"), pos=[500, 1100])
+game.mainloop()

@@ -6,7 +6,7 @@ Please note this project is still under __heavy development__, which means it wi
 
 This project is stable on Debian Linux, Raspberry Pi, and Mac.
 
-Want to be a tester? take a look at [__this__](https://github.com/desvasicek/Abinde/discussions/6)!
+Want to be a tester? take a look at [__this__](https://github.com/orgs/Abinde-Game-Dev/teams/testers/)!
 
 ## About
 

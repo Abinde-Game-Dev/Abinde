@@ -2,13 +2,13 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='1.9.5',
+    version='1.9.6',
     install_requires=[
         'pygame>=2.1.2',
         'importlib-metadata; python_version >= "3.8"',
         'pillow',
     ],
-    url="https://github.com/desvasicek/Abinde",
+    url="https://github.com/Abinde-Game-Dev",
     author="desvasicek",
     keywords="game python lightweight open-source raspberry-pi mac linux games image game-engine simple game-development game-2d pygame help-wanted easy-to-use easy open-source-project good-first-issue pygame-games pygame-game",
     license="MIT",
