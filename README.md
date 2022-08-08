@@ -15,7 +15,6 @@
 ![python](https://img.shields.io/pypi/pyversions/Abinde)
 ![version](https://img.shields.io/pypi/v/Abinde)
 ![checks](https://img.shields.io/github/checks-status/Abinde-Game-Dev/Abinde/main)
-![good first issue](https://img.shields.io/github/labels/Abinde-Game-Dev/Abinde/good%20first%20issue?color=yellow)
 ![milestones](https://img.shields.io/github/milestones/all/Abinde-Game-Dev/Abinde)
 
 Abinde is a python module for pygame.
