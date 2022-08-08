@@ -5,7 +5,6 @@ setup(
     version='1.9.6',
     install_requires=[
         'pygame>=2.1.2',
-        'importlib-metadata; python_version >= "3.8"',
         'pillow',
     ],
     url="https://github.com/Abinde-Game-Dev",
