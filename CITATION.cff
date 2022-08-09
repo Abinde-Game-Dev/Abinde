@@ -1,5 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Penguin"
+  given-names: "Real"
 title: "Abinde"
 version: 1.9.6
 date-released: 2022-08-08

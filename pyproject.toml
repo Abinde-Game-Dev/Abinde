@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 name = "Abinde"
 version = "1.9.7"
 authors = [
-  { name="desvasicek", email="84301435+desvasicek@users.noreply.github.com" },
+  { name="_TheRealPenguin", email="84301435+TheRealPenguin@users.noreply.github.com" },
 ]
 description = "Abinde is an easy-to-use python module for pygame."
 readme = "README.md"
