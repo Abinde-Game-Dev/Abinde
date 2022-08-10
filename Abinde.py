@@ -17,6 +17,7 @@ players = []
 drawings = []
 _text = []
 _objects = []
+_enemies = []
 
 warnings.simplefilter("once")
 
@@ -26,7 +27,6 @@ objects = pygame.sprite.Group()
 game_quit = False
 
 class color:
-    """All the colors"""
     ALICEBLUE = (240, 248, 255)
     ANTIQUEWHITE = (250, 235, 215)
     ANTIQUEWHITE1 = (255, 239, 219)
@@ -583,16 +583,10 @@ class color:
     YELLOW4 = (139, 139, 0)
 
 def pil_image_to_surface(pilImage):
-    """
-    Not for development use.
-    """
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
 
 def LoadImage(path, mode="PIL"):
-    """
-    Load an image
-    """
     if mode == "PIL":
         return pil_image_to_surface(PILImage.open(path))
     elif mode == "pygame":
@@ -638,14 +632,11 @@ class warn:
     
 
 class Game(object):
-    """
-    Create the window object.
-    """
-    def __init__(self, title="New Abinde Instance", width=500, height=600, bg=color.BLACK):
+    def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK):
         global windows
         try:
             if len(windows) <= 1:
-                self.root = pygame.display.set_mode((width, height))
+                self.root = pygame.display.set_mode((size[0], size[1]))
             else:
                 raise error.MultipleInstanceError
         except:
@@ -658,12 +649,11 @@ class Game(object):
         self.looping = True
         self.bg = bg
         self.root.fill(bg)
+        self.size = size
         windows.append(self)
+        self.rect = self.root.get_rect()
         
     def loop(self):
-        """
-        Not for development use.
-        """
         try:
             global game_quit
             while self.looping:
@@ -686,16 +676,15 @@ class Game(object):
                         _object.draw(self)
                     for text in _text:
                         text.draw(self)
+                    for _enemy in _enemies:
+                        _enemy.move(self)
+                        _enemy.draw(self)
                     pygame.display.flip()
                     self.fps.tick(60)
         except Exception as e:
              print(e)
 
     def mainloop(self):
-        """
-        Start the window
-        """
-        
         self.looping = True
         # To fix bug on mac run loop on Main Thread.
         self.loop()
@@ -703,9 +692,6 @@ class Game(object):
 
 class sprite:
     class Rectangle(object):
-        """
-        Draw a rectangle
-        """
         def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
             self._x = pos[0]
             self._y = pos[1]
@@ -718,14 +704,12 @@ class sprite:
             
         def draw(self, game):
             pygame.draw.rect(game.root, self.color, self.rect)
+            
         def returntitle(self):
             return self.title
 
             
     class Line(object):
-        """
-        Draw a line
-        """
         def __init__(self, pos=[0, 0], length=[50, 50], color=color.WHITE, title="Line"):
             self._x = pos[0]
             self._y = pos[1]
@@ -737,14 +721,12 @@ class sprite:
             
         def draw(self, game):
             pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
+            
         def returntitle(self):
             return self.title
 
             
     class Ellipse(object):
-        """
-        Draw an ellipse
-        """
         def __init__(self, pos=[80, 80], size=[50, 50], color=color.WHITE, title="Ellipse"):
             self._x = pos[0]
             self._y = pos[1]
@@ -756,6 +738,7 @@ class sprite:
             
         def draw(self, game):
             pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+            
         def returntitle(self):
             return self.title
 
@@ -783,9 +766,3 @@ class Audio:
     def unpause(self):
         mixer.music.unpause()
 
-
-
-game = Game(width=1000, height=1000)
-player = sprite.Player(LoadImage("Abinde.png"), jumpheight=150, ACC=6, FRIC=.9)
-_object = sprite.Object(LoadImage("Abinde.png"), pos=[500, 1100])
-game.mainloop()

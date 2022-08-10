@@ -1,6 +1,7 @@
 Abinde.py
 LICENSE
 README.rst
+pyproject.toml
 setup.py
 Abinde.egg-info/PKG-INFO
 Abinde.egg-info/SOURCES.txt
