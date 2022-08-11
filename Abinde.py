@@ -13,16 +13,10 @@ mixer.init()
 pygame.font.init()
 
 windows = []
-players = []
-drawings = []
-_text = []
-_objects = []
-_enemies = []
+all_s = []
+update = []
 
 warnings.simplefilter("once")
-
-enemies = pygame.sprite.Group()
-objects = pygame.sprite.Group()
 
 game_quit = False
 
@@ -582,6 +576,11 @@ class color:
     YELLOW3 = (205, 205, 0)
     YELLOW4 = (139, 139, 0)
 
+# Events
+
+def on_update(do):
+    update.append(do)
+
 def pil_image_to_surface(pilImage):
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
@@ -607,22 +606,20 @@ class error:
 
     class SizeError(Exception):
         def __init__(self):
-            super().__init__("Width and height must be integers.")
+            super().__init__("size must be an int list.")
+            
     class MultipleInstanceError(Exception):
         def __init__(self):
             super().__init__("You can only have 1 window open at once.")
+            
     class ImageError(Exception):
         def __init__(self):
             super().__init__("Use Image class for sprite images.")
-    class MultiplePlayerError(Exception):
-        def __init__(self):
-            super().__init__("You can only have 1 player object in use at once.")
+            
     class SetModeError(Exception):
         def __init__(self):
             super().__init__("Only options 'PIL' and 'pygame' are supported.")
-    class JumpError(Exception):
-        def __init__(self):
-            super().__init__("Jump height must be less than 150.")
+            
 
 class warn:
     
@@ -667,22 +664,14 @@ class Game(object):
                             pygame.quit()
                             game_quit = True
                             self.looping = False
-                    for player in players:
-                        player.move()
-                        player.draw(self)
-                    for drawing in drawings:
-                        drawing.draw(self)
-                    for _object in _objects:
-                        _object.draw(self)
-                    for text in _text:
-                        text.draw(self)
-                    for _enemy in _enemies:
-                        _enemy.move(self)
-                        _enemy.draw(self)
+                    for sprite in all_s:
+                        sprite.draw(self)
+                    for function in update:
+                        function()
                     pygame.display.flip()
                     self.fps.tick(60)
         except Exception as e:
-             print(e)
+             warnings.warn(e)
 
     def mainloop(self):
         self.looping = True
@@ -693,13 +682,14 @@ class Game(object):
 class sprite:
     class Rectangle(object):
         def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
+            global all_s
+            all_s.append(self)
             self._x = pos[0]
             self._y = pos[1]
             self._width = size[0]
             self._height = size[1]
             self.color = color
             self.title = title
-            drawings.append(self)
             self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
             
         def draw(self, game):
@@ -707,49 +697,81 @@ class sprite:
             
         def returntitle(self):
             return self.title
+        
+        def move(self, move_x=1, move_y=1):
+            self._x += move_x
+            self._y += move_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+            
+        def go_to(self, to_x, to_y):
+            self._x = to_x
+            self._y = to_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
             
     class Line(object):
         def __init__(self, pos=[0, 0], length=[50, 50], color=color.WHITE, title="Line"):
+            global all_s
+            all_s.append(self)
             self._x = pos[0]
             self._y = pos[1]
             self._start = length[0]
             self._end = length[1]
             self.color = color
             self.title = title
-            drawings.append(self)
             
         def draw(self, game):
             pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
             
         def returntitle(self):
             return self.title
+        
+        def move(self, move_x=1, move_y=1):
+            self._x += move_x
+            self._y += move_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+            
+        def go_to(self, to_x, to_y):
+            self._x = to_x
+            self._y = to_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
             
     class Ellipse(object):
         def __init__(self, pos=[80, 80], size=[50, 50], color=color.WHITE, title="Ellipse"):
+            global all_s
+            all_s.append(self)
             self._x = pos[0]
             self._y = pos[1]
             self._width = size[0]
             self._height = size[1]
             self.color = color
             self.title = title
-            drawings.append(self)
             
         def draw(self, game):
             pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
             
         def returntitle(self):
             return self.title
+        
+        def move(self, move_x=1, move_y=1):
+            self._x += move_x
+            self._y += move_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+            
+        def go_to(self, to_x, to_y):
+            self._x = to_x
+            self._y = to_y
+            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
         
     class Text(object):
         def __init__(self, fontname, text, fontsize=30, pos=(10, 10), color=color.WHITE):
-            global _text
+            global all_s
+            all_s.append(self)
             self.font = pygame.font.SysFont(fontname, fontsize)
             self.root = self.font.render(text, False, color)
             self.pos = pos
-            _text.append(self)
             
         def draw(self, game):
             game.root.blit(self.root, self.pos)
@@ -765,4 +787,3 @@ class Audio:
         mixer.music.pause()
     def unpause(self):
         mixer.music.unpause()
-
