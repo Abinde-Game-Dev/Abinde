@@ -52,9 +52,9 @@ game.mainloop()
 
 ## Tested on
 
-| Raspberry Pi OS | Debian Linux    | Mac             |
-|-----------------|-----------------|-----------------|
-| Stable (v1.9.6) | Stable (v1.9.5) | Stable (v1.9.6)   |
+| Raspberry Pi OS | Mac             |
+|-----------------|-----------------|
+| Stable (v2.0.1) | Stable (v1.9.6) |
 
 ## Please Note
 
