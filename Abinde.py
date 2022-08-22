@@ -7,6 +7,7 @@ from pygame.locals import *
 import time, random
 import warnings
 from pygame import mixer
+import logging
 
 pygame.init()
 mixer.init()
@@ -14,9 +15,6 @@ pygame.font.init()
 
 windows = []
 all_s = []
-update = []
-
-warnings.simplefilter("once")
 
 game_quit = False
 
@@ -575,11 +573,7 @@ class color:
     YELLOW2 = (238, 238, 0)
     YELLOW3 = (205, 205, 0)
     YELLOW4 = (139, 139, 0)
-
-# Events
-
-def on_update(do):
-    update.append(do)
+            
 
 def pil_image_to_surface(pilImage):
     return pygame.image.fromstring(
@@ -629,7 +623,7 @@ class warn:
     
 
 class Game(object):
-    def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK):
+    def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file"):
         global windows
         try:
             if len(windows) <= 1:
@@ -642,6 +636,19 @@ class Game(object):
             pygame.display.set_caption(title)
         except:
             raise error.TitleError
+        
+        if warn_me == "always":
+            warnings.simplefilter("always")
+        elif warn_me == "once":
+            warnings.simplefilter("once")
+        elif warn_me == "never":
+            warnings.simplefilter("never")
+        
+        if log_to == "file":
+            logging.basicConfig(format='GAME - %(message)s', level=logging.INFO, filename="game.log", filemode="w")
+        elif log_to == "program":
+            logging.basicConfig(format='GAME - %(message)s', level=logging.INFO)
+        
         self.fps = pygame.time.Clock()
         self.looping = True
         self.bg = bg
@@ -649,34 +656,60 @@ class Game(object):
         self.size = size
         windows.append(self)
         self.rect = self.root.get_rect()
+        self.on_update = []
+        self.on_keydown = []
+        self.on_keyup = []
+        self.on_mousemotion = []
         
     def loop(self):
         try:
             global game_quit
             while self.looping:
                 if not game_quit:
+
+                    
                     try:
                         self.root.fill(self.bg)
                     except:
                         raise error.BackgroundError
+                    
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                             pygame.quit()
                             game_quit = True
                             self.looping = False
+                        if event.type == pygame.KEYUP:
+                            for function in self.on_keyup:
+                                function()
+                        if event.type == pygame.KEYDOWN:
+                            for function in self.on_keydown:
+                                function()
+                        logging.info(pygame.event.event_name(event.type))
+                    
                     for sprite in all_s:
                         sprite.draw(self)
-                    for function in update:
-                        function()
                     pygame.display.flip()
                     self.fps.tick(60)
         except Exception as e:
-             warnings.warn(e)
+             print(e)
 
     def mainloop(self):
         self.looping = True
         # To fix bug on mac run loop on Main Thread.
         self.loop()
+
+class OnKeyUp:
+    def __init__(self, game, do):
+        game.on_keyup.append(do)
+        logging.info("Event Added")
+class OnKeyDown:
+    def __init__(self, game, do):
+        game.on_keydown.append(do)
+        logging.info("Event Added")
+class OnUpdate:
+    pass
+class OnMouseMotion:
+    pass
         
 
 class sprite:

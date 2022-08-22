@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Abinde',
-    version='2.0',
+    version='2.0.1',
     install_requires=[
         'pygame>=2.1.2',
         'importlib-metadata; python_version >= "3.8"',

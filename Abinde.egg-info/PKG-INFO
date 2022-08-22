@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Abinde
-Version: 2.0
+Version: 2.0.1
 Summary: Abinde is an easy-to-use python module for pygame.
 Home-page: https://github.com/Abinde-Game-Dev
 Author: _TheRealPenguin
@@ -80,7 +80,7 @@ pip install -U Abinde
 ```python
 import Abinde as ab
 game = ab.Game()
-player = ab.sprite.Player(ab.LoadImage("path/to/image"))
+player = ab.sprite.Rectangle()
 game.mainloop()
 ```
 

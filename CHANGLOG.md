@@ -7,3 +7,16 @@ In the changelog, all releases are documented.
 ### Add
 
 - CHANGELOG.md
+
+## [08-22-2022] - v2.0.1
+
+### Update
+
+- `Game` class
+- `docs`
+- `warnings`
+
+### Add
+
+- `logging`
+- Events
