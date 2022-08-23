@@ -8,8 +8,8 @@ import time, random
 import warnings
 from pygame import mixer
 import logging
+import sys
 
-pygame.init()
 mixer.init()
 pygame.font.init()
 
@@ -625,6 +625,9 @@ class warn:
 class Game(object):
     def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file"):
         global windows
+
+        pygame.init()
+        
         try:
             if len(windows) <= 1:
                 self.root = pygame.display.set_mode((size[0], size[1]))
@@ -662,7 +665,6 @@ class Game(object):
         self.on_mousemotion = []
         
     def loop(self):
-        try:
             global game_quit
             while self.looping:
                 if not game_quit:
@@ -678,20 +680,25 @@ class Game(object):
                             pygame.quit()
                             game_quit = True
                             self.looping = False
+                            sys.exit()
                         if event.type == pygame.KEYUP:
                             for function in self.on_keyup:
-                                function()
+                                function(event)
                         if event.type == pygame.KEYDOWN:
                             for function in self.on_keydown:
-                                function()
+                                function(event)
+                        if event.type == pygame.MOUSEMOTION:
+                            for function in self.on_mousemotion:
+                                function(event)
                         logging.info(pygame.event.event_name(event.type))
-                    
+
+                    for function in self.on_update:
+                            function(event)
+                            
                     for sprite in all_s:
                         sprite.draw(self)
                     pygame.display.flip()
                     self.fps.tick(60)
-        except Exception as e:
-             print(e)
 
     def mainloop(self):
         self.looping = True
@@ -701,15 +708,19 @@ class Game(object):
 class OnKeyUp:
     def __init__(self, game, do):
         game.on_keyup.append(do)
-        logging.info("Event Added")
+        logging.info("[Key Up] Event Added")
 class OnKeyDown:
     def __init__(self, game, do):
         game.on_keydown.append(do)
-        logging.info("Event Added")
+        logging.info("[Key Down] Event Added")
 class OnUpdate:
-    pass
+    def __init__(self, game, do):
+        game.on_update.append(do)
+        logging.info("[Update] Event Added")
 class OnMouseMotion:
-    pass
+    def __init__(self, game, do):
+        game.on_mousemotion.append(do)
+        logging.info("[Mouse Motion] Event Added")
         
 
 class sprite:

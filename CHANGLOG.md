@@ -20,3 +20,9 @@ In the changelog, all releases are documented.
 
 - `logging`
 - Events
+
+## [08-22-2022] - v2.1
+
+### Update
+
+- Events
