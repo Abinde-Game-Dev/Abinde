@@ -26,3 +26,8 @@ In the changelog, all releases are documented.
 ### Update
 
 - Events
+
+### Add
+
+- `Pipfile`
+- `Pipfile.lock`
