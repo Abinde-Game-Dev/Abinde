@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "df96b00558aa9e68f935ade22e5ed4265ba42f934f818c3bb14bea11b7f84780"
+            "sha256": "ff41925ba55a9a213ec631aeec01d7d5b6d659437a6cc4d85928dcc6596b28da"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -143,6 +143,35 @@
             ],
             "index": "pypi",
             "version": "==2.1.2"
+        },
+        "pyopengl": {
+            "hashes": [
+                "sha256:57c597d989178e1413002df6b923619f6d29807501dece1c60cc6f12c0c8e8a7",
+                "sha256:8ea6c8773927eda7405bffc6f5bb93be81569a7b05c8cac50cd94e969dce5e27",
+                "sha256:a7139bc3e15d656feae1f7e3ef68c799941ed43fadc78177a23db7e946c20738"
+            ],
+            "index": "pypi",
+            "version": "==3.1.6"
+        },
+        "pyopengl-accelerate": {
+            "hashes": [
+                "sha256:02625dc72a5813bc4ecfc95d8d6d8f47668d29e03a469af376cabe8c9a41efda",
+                "sha256:1011841fed437d6d4b8ed77dde62eb2a0dc0b1cf6feb9805bb2a2481b1017384",
+                "sha256:16d74e60229e94b596d7c280577638d77f2900bd80a4dc325f6d1039376c82fe",
+                "sha256:2c6d5bbff45d76125ff684b9231442668f9d7101175568bd1da1d54c8ade725f",
+                "sha256:3f178eddf12f4b248469d363ae2c4f1cc0ea0335f9a6703da2fb4c44e21a88b4",
+                "sha256:7550f8049788c16f3a0ec3ffdc0c75ed0b6cf995661fa046cdec7753e34b202f",
+                "sha256:7eda1eeda3782d6dab2a86145a6511fa9f08b56ba1c593fb480a74477c5d7361",
+                "sha256:9311e0abfcca752bf94ba18c360f1d69b6bd3188fb946dd58fb84138bac038ba",
+                "sha256:95346d10db577ba42587677f8071408258b16c55ee7c1cc549ae8ecdf3d893dd",
+                "sha256:bb05c5700e6e7dc47e04c7cf0b7ca917029d61968b9b3ea0702870cea831908f",
+                "sha256:bf2ab411f5a8b60be82b950e173732ecc90d68cfb1f96fe514a0137ae2f5c014",
+                "sha256:c070e40154b4bb472e55ac7b30e170f6224d525111872f9af01ea1f67089c5bc",
+                "sha256:c531775131936e8d46bee4520fd938b89286aa8bb8f251b154dfd101e717ffc4",
+                "sha256:f05628ea4c2425c0dcaabfb54747e209becdc8a6322d192c78ea5df7e1360d4a"
+            ],
+            "index": "pypi",
+            "version": "==3.1.6"
         }
     },
     "develop": {}

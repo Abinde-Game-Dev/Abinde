@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 pygame = "*"
 pillow = "*"
+pyopengl = "*"
+pyopengl-accelerate = "*"
 
 [dev-packages]
 

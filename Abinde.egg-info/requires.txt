@@ -1,5 +1,7 @@
 pygame>=2.1.2
 pillow
+PyOpenGL
+PyOpenGL_accelerate
 
 [:python_version >= "3.8"]
 importlib-metadata

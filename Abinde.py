@@ -1,6 +1,10 @@
 # Abinde python game-engine
 # Copyright 2022 MIT License _TheRealPenguin
 
+import os
+
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+
 from PIL import Image as PILImage
 import pygame
 from pygame.locals import *
@@ -9,6 +13,9 @@ import warnings
 from pygame import mixer
 import logging
 import sys
+import pkg_resources
+
+print("Abinde version {}. Hello from the Abinde team! \nNot sure what to do? Check out the docs. https://abinde-game-dev.github.io".format(pkg_resources.get_distribution("Abinde").version))
 
 mixer.init()
 pygame.font.init()
@@ -574,13 +581,7 @@ class color:
     YELLOW3 = (205, 205, 0)
     YELLOW4 = (139, 139, 0)
 
-def check_module(name):
-    reqs = subprocess.check_output([sys.executable, '-m', 'pip', 'list','--outdated'])
-    outdated_packages = [r.decode().split('==')[0] for r in reqs.split()]
-    return name in outdated_packages
-
 def check_all():
-    import pkg_resources
     if not pkg_resources.get_distribution("pygame").version >= "2.1.2":
         warnings.warn("Your version of pygame ({}) is outdated. Upgrading pygame is highly reccomended.".format(pkg_resources.get_distribution("pygame").version), Warning)
     if not pkg_resources.get_distribution("Abinde").version >= "2.1":
@@ -622,13 +623,14 @@ class error:
     class SetModeError(Exception):
         def __init__(self):
             super().__init__("Only options 'PIL' and 'pygame' are supported.")
-    
+
 
 class Game(object):
     def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file"):
         global windows
 
         pygame.init()
+        sys.stdout.flush()
         
         try:
             if len(windows) <= 1:
