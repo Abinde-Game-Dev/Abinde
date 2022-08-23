@@ -2,16 +2,16 @@
 # Copyright 2022 MIT License _TheRealPenguin
 
 from PIL import Image as PILImage
-import pygame
-from pygame.locals import *
+# import pygame
+# from pygame.locals import *
 import time, random
 import warnings
-from pygame import mixer
+# from pygame import mixer
 import logging
 import sys
 
-mixer.init()
-pygame.font.init()
+# mixer.init()
+# pygame.font.init()
 
 windows = []
 all_s = []
@@ -574,11 +574,6 @@ class color:
     YELLOW3 = (205, 205, 0)
     YELLOW4 = (139, 139, 0)
 
-def check_module(name):
-    reqs = subprocess.check_output([sys.executable, '-m', 'pip', 'list','--outdated'])
-    outdated_packages = [r.decode().split('==')[0] for r in reqs.split()]
-    return name in outdated_packages
-
 def check_all():
     import pkg_resources
     if not pkg_resources.get_distribution("pygame").version >= "2.1.2":
@@ -628,17 +623,17 @@ class Game(object):
     def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file"):
         global windows
 
-        pygame.init()
+#        pygame.init()
         
         try:
             if len(windows) <= 1:
-                self.root = pygame.display.set_mode((size[0], size[1]))
+#                self.root = pygame.display.set_mode((size[0], size[1]))
             else:
                 raise error.MultipleInstanceError
         except:
             raise error.SizeError
         try:
-            pygame.display.set_caption(title)
+#            pygame.display.set_caption(title)
         except:
             raise error.TitleError
         
@@ -654,13 +649,13 @@ class Game(object):
         elif log_to == "program":
             logging.basicConfig(format='GAME - %(message)s', level=logging.INFO)
         
-        self.fps = pygame.time.Clock()
+#        self.fps = pygame.time.Clock()
         self.looping = True
         self.bg = bg
-        self.root.fill(bg)
+#        self.root.fill(bg)
         self.size = size
         windows.append(self)
-        self.rect = self.root.get_rect()
+#        self.rect = self.root.get_rect()
         self.on_update = []
         self.on_keydown = []
         self.on_keyup = []
@@ -673,23 +668,23 @@ class Game(object):
 
                     
                     try:
-                        self.root.fill(self.bg)
+#                        self.root.fill(self.bg)
                     except:
                         raise error.BackgroundError
                     
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                            pygame.quit()
+#                    for event in pygame.event.get():
+#                        if event.type == pygame.QUIT:
+#                            pygame.quit()
                             game_quit = True
                             self.looping = False
                             sys.exit()
-                        if event.type == pygame.KEYUP:
+#                        if event.type == pygame.KEYUP:
                             for function in self.on_keyup:
                                 function(event)
-                        if event.type == pygame.KEYDOWN:
+#                        if event.type == pygame.KEYDOWN:
                             for function in self.on_keydown:
                                 function(event)
-                        if event.type == pygame.MOUSEMOTION:
+#                        if event.type == pygame.MOUSEMOTION:
                             for function in self.on_mousemotion:
                                 function(event)
                         logging.info(pygame.event.event_name(event.type))
@@ -699,8 +694,8 @@ class Game(object):
                             
                     for sprite in all_s:
                         sprite.draw(self)
-                    pygame.display.flip()
-                    self.fps.tick(60)
+#                    pygame.display.flip()
+#                    self.fps.tick(60)
 
     def mainloop(self):
         self.looping = True
@@ -736,10 +731,10 @@ class sprite:
             self._height = size[1]
             self.color = color
             self.title = title
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
             
         def draw(self, game):
-            pygame.draw.rect(game.root, self.color, self.rect)
+#            pygame.draw.rect(game.root, self.color, self.rect)
             
         def returntitle(self):
             return self.title
@@ -747,12 +742,12 @@ class sprite:
         def move(self, move_x=1, move_y=1):
             self._x += move_x
             self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
             
         def go_to(self, to_x, to_y):
             self._x = to_x
             self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
             
     class Line(object):
@@ -767,7 +762,7 @@ class sprite:
             self.title = title
             
         def draw(self, game):
-            pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
+#            pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
             
         def returntitle(self):
             return self.title
@@ -775,12 +770,12 @@ class sprite:
         def move(self, move_x=1, move_y=1):
             self._x += move_x
             self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
             
         def go_to(self, to_x, to_y):
             self._x = to_x
             self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
             
     class Ellipse(object):
@@ -795,7 +790,7 @@ class sprite:
             self.title = title
             
         def draw(self, game):
-            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+#            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
             
         def returntitle(self):
             return self.title
@@ -803,33 +798,33 @@ class sprite:
         def move(self, move_x=1, move_y=1):
             self._x += move_x
             self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
             
         def go_to(self, to_x, to_y):
             self._x = to_x
             self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+#            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
 
         
     class Text(object):
         def __init__(self, fontname, text, fontsize=30, pos=(10, 10), color=color.WHITE):
             global all_s
             all_s.append(self)
-            self.font = pygame.font.SysFont(fontname, fontsize)
-            self.root = self.font.render(text, False, color)
+#            self.font = pygame.font.SysFont(fontname, fontsize)
+#            self.root = self.font.render(text, False, color)
             self.pos = pos
             
         def draw(self, game):
-            game.root.blit(self.root, self.pos)
+#            game.root.blit(self.root, self.pos)
 
 
 class Audio:
     def __init__(self, file, volume=0.7):
-        mixer.music.load(file)
-        mixer.music.set_volume(volume)
+#        mixer.music.load(file)
+#        mixer.music.set_volume(volume)
     def play(self):
-        mixer.music.play()
+#        mixer.music.play()
     def pause(self):
-        mixer.music.pause()
+#        mixer.music.pause()
     def unpause(self):
-        mixer.music.unpause()
+#        mixer.music.unpause()
