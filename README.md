@@ -73,8 +73,3 @@ To use this module, you will need at least some experience with coding python.
 - Made with [__python__](https://python.org).
 - Thank you to all the people at [__pygame__](https://pygame.org), who worked hard to make an __awesome__ module.
 
-## Into the Future
-
-- [__OpenGL__](https://opengl.org)?
-- Expand to more languages?
-

@@ -1,5 +1,7 @@
-# Abinde python game-engine
-# Copyright 2022 MIT License _TheRealPenguin
+"""Abinde python game-engine
+Copyright 2022 MIT License _TheRealPenguin
+Abinde is a game-engine for python users. It is easy to use.
+"""
 
 import os
 
@@ -587,8 +589,6 @@ def check_all():
     if not pkg_resources.get_distribution("Abinde").version >= "2.1":
         warnings.warn("Your version of Abinde ({}) is outdated. Upgrading Abinde is highly reccomended.".format(pkg_resources.get_distribution("Abinde").version), Warning)
 
-check_all()
-
 def pil_image_to_surface(pilImage):
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
@@ -655,6 +655,8 @@ class Game(object):
             logging.basicConfig(format='GAME - %(message)s', level=logging.INFO, filename="game.log", filemode="w")
         elif log_to == "program":
             logging.basicConfig(format='GAME - %(message)s', level=logging.INFO)
+
+        check_all()
         
         self.fps = pygame.time.Clock()
         self.looping = True
