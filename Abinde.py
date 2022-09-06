@@ -17,7 +17,7 @@ import logging
 import sys
 import pkg_resources
 
-print("Abinde version {}. Hello from the Abinde team! \nNot sure what to do? Check out the docs. https://abinde-game-dev.github.io".format(pkg_resources.get_distribution("Abinde").version))
+print("Abinde version {}. Hello from the Abinde team! \nNot sure what to do? Check out the docs. https://abinde-game-dev.github.io/docs. Join the Abinde team! https://github.com/Abinde-Game-Dev.".format(pkg_resources.get_distribution("Abinde").version))
 
 mixer.init()
 pygame.font.init()
@@ -762,7 +762,7 @@ class mod:
 def check_all():
     if not pkg_resources.get_distribution("pygame").version >= "2.1.2":
         warnings.warn("Your version of pygame ({}) is outdated. Upgrading pygame is highly reccomended.".format(pkg_resources.get_distribution("pygame").version), Warning)
-    if not pkg_resources.get_distribution("Abinde").version >= "2.1":
+    if not pkg_resources.get_distribution("Abinde").version >= "2.3":
         warnings.warn("Your version of Abinde ({}) is outdated. Upgrading Abinde is highly reccomended.".format(pkg_resources.get_distribution("Abinde").version), Warning)
 
 def pil_image_to_surface(pilImage):
@@ -790,7 +790,7 @@ class error:
 
     class SizeError(Exception):
         def __init__(self):
-            super().__init__("size must be an int list.")
+            super().__init__("Size must be an int list.")
             
     class MultipleInstanceError(Exception):
         def __init__(self):
@@ -845,6 +845,7 @@ class Game(object):
         self.on_keydown = []
         self.on_keyup = []
         self.on_mousemotion = []
+        self.on_keypress = []
         
     def loop(self):
             global game_quit
@@ -875,8 +876,8 @@ class Game(object):
                         logging.info(pygame.event.event_name(event.type))
 
                     for function in self.on_update:
-                            function(event)
-                            
+                        function(event)
+                    self.checkkeypress()
                     for sprite in all_s:
                         sprite.draw(self)
                     pygame.display.flip()
@@ -886,6 +887,13 @@ class Game(object):
         self.looping = True
         # To fix bug on mac run loop on Main Thread.
         self.loop()
+    def checkkeypress(self):
+        self.keys = pygame.key.get_pressed()
+        if True in self.keys:
+            for function in self.on_keypress:
+                function(self.keys)
+    def get_size(self):
+        return self.size
 
 class OnKeyUp:
     def __init__(self, game, do):
@@ -903,6 +911,10 @@ class OnMouseMotion:
     def __init__(self, game, do):
         game.on_mousemotion.append(do)
         logging.info("[Mouse Motion] Event Added")
+class OnKeyPress:
+    def __init__(self, game, do):
+        game.on_keypress.append(do)
+        logging.info("[Key Press] Event Added")
         
 
 class sprite:
@@ -910,13 +922,13 @@ class sprite:
         def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
             global all_s
             all_s.append(self)
-            self._x = pos[0]
-            self._y = pos[1]
-            self._width = size[0]
-            self._height = size[1]
+            self.x = pos[0]
+            self.y = pos[1]
+            self.width = size[0]
+            self.height = size[1]
             self.color = color
             self.title = title
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
         def draw(self, game):
             pygame.draw.rect(game.root, self.color, self.rect)
@@ -924,71 +936,89 @@ class sprite:
         def returntitle(self):
             return self.title
         
-        def move(self, move_x=1, move_y=1):
-            self._x += move_x
-            self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def move(self, move=[1, 1]):
+            self.x += move[0]
+            self.y += move[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
-        def go_to(self, to_x, to_y):
-            self._x = to_x
-            self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def go_to(self, pos=[1, 1]):
+            self.x = pos[0]
+            self.y = pos[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
+        
+        def get_pos(self):
+            return [self.x, self.y]
+        
+        def get_size(self):
+            return [self.width, self.height]
 
             
     class Line(object):
-        def __init__(self, pos=[0, 0], length=[50, 50], color=color.WHITE, title="Line"):
+        def __init__(self, pos=[0, 0], size=[50, 50], color=color.WHITE, title="Line"):
             global all_s
             all_s.append(self)
-            self._x = pos[0]
-            self._y = pos[1]
-            self._start = length[0]
-            self._end = length[1]
+            self.x = pos[0]
+            self.y = pos[1]
+            self.width = size[0]
+            self.height = size[1]
             self.color = color
             self.title = title
             
         def draw(self, game):
-            pygame.draw.line(game.root, self.color, [self._x, self._y], [self._start, self._end])
+            pygame.draw.line(game.root, self.color, [self.x, self.y], [self.width, self.height])
             
         def returntitle(self):
             return self.title
         
-        def move(self, move_x=1, move_y=1):
-            self._x += move_x
-            self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def move(self, move=[1, 1]):
+            self.x += move[0]
+            self.y += move[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
-        def go_to(self, to_x, to_y):
-            self._x = to_x
-            self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def go_to(self, pos=[1, 1]):
+            self.x = pos[0]
+            self.y = pos[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
+        
+        def get_pos(self):
+            return [self.x, self.y]
+        
+        def get_size(self):
+            return [self.width, self.height]
 
             
     class Ellipse(object):
         def __init__(self, pos=[80, 80], size=[50, 50], color=color.WHITE, title="Ellipse"):
             global all_s
             all_s.append(self)
-            self._x = pos[0]
-            self._y = pos[1]
-            self._width = size[0]
-            self._height = size[1]
+            self.x = pos[0]
+            self.y = pos[1]
+            self.width = size[0]
+            self.height = size[1]
             self.color = color
             self.title = title
             
         def draw(self, game):
-            pygame.draw.ellipse(game.root, self.color, (self._x, self._y, self._width, self._height))
+            pygame.draw.ellipse(game.root, self.color, (self.x, self.y, self.width, self.height))
             
         def returntitle(self):
             return self.title
         
-        def move(self, move_x=1, move_y=1):
-            self._x += move_x
-            self._y += move_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def move(self, move=[1, 1]):
+            self.x += move[0]
+            self.y += move[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
-        def go_to(self, to_x, to_y):
-            self._x = to_x
-            self._y = to_y
-            self.rect = pygame.Rect(self._x, self._y, self._width, self._height)
+        def go_to(self, pos=[1, 1]):
+            self.x = pos[0]
+            self.y = pos[1]
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
+        
+        def get_pos(self):
+            return [self.x, self.y]
+        
+        def get_size(self):
+            return [self.width, self.height]
 
         
     class Text(object):
