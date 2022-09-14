@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "Abinde"
-version = "2.3"
+version = "2.4"
 authors = [
-  { name="_TheRealPenguin", email="84301435+TheRealPenguin@users.noreply.github.com" },
+  { name="_TheRealPenguin" },
 ]
 description = "Abinde is an easy-to-use python module for pygame."
 readme = "README.md"

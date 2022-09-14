@@ -17,7 +17,7 @@ import logging
 import sys
 import pkg_resources
 
-print("Abinde version {}. Hello from the Abinde team! \nNot sure what to do? Check out the docs. https://abinde-game-dev.github.io/docs. Join the Abinde team! https://github.com/Abinde-Game-Dev.".format(pkg_resources.get_distribution("Abinde").version))
+print("Abinde version {}. Hello from the Abinde team! \nNot sure what to do? Check out the docs. https://abinde-game-dev.github.io/docs.\nJoin the Abinde team! https://github.com/Abinde-Game-Dev.".format(pkg_resources.get_distribution("Abinde").version))
 
 mixer.init()
 pygame.font.init()
@@ -769,13 +769,8 @@ def pil_image_to_surface(pilImage):
     return pygame.image.fromstring(
         pilImage.tobytes(), pilImage.size, pilImage.mode).convert()
 
-def LoadImage(path, mode="PIL"):
-    if mode == "PIL":
-        return pil_image_to_surface(PILImage.open(path))
-    elif mode == "pygame":
-        return pygame.image.load(path)
-    else:
-        raise error.SetModeError
+def LoadImage(path):
+    return pil_image_to_surface(PILImage.open(path))
         
         
 class error:
@@ -887,13 +882,18 @@ class Game(object):
         self.looping = True
         # To fix bug on mac run loop on Main Thread.
         self.loop()
+    
     def checkkeypress(self):
         self.keys = pygame.key.get_pressed()
         if True in self.keys:
             for function in self.on_keypress:
                 function(self.keys)
+    
     def get_size(self):
         return self.size
+    
+    def wait(self, ms):
+        time.sleep(ms / 1000)
 
 class OnKeyUp:
     def __init__(self, game, do):
@@ -1033,6 +1033,38 @@ class sprite:
             game.root.blit(self.root, self.pos)
 
 
+    class Image(object):
+        def __init__(self, image, pos=[40, 40], title="Image"):
+            global all_s
+            all_s.append(self)
+            self.x = pos[0]
+            self.y = pos[1]
+            self.color = color
+            self.title = title
+            self.image = image
+            self.rect = self.image.get_rect()
+            self.rect.topleft = (self.x, self.y)
+            
+        def draw(self, game):
+            game.root.blit(self.image, self.rect)
+            
+        def returntitle(self):
+            return self.title
+        
+        def move(self, move=[1, 1]):
+            self.x += move[0]
+            self.y += move[1]
+            self.rect.topleft = (self.x, self.y)
+            
+        def go_to(self, pos=[1, 1]):
+            self.x = pos[0]
+            self.y = pos[1]
+            self.rect.topleft = (self.x, self.y)
+        
+        def get_pos(self):
+            return [self.x, self.y]
+
+
 class Audio:
     def __init__(self, file, volume=0.7):
         mixer.music.load(file)
@@ -1043,3 +1075,23 @@ class Audio:
         mixer.music.pause()
     def unpause(self):
         mixer.music.unpause()
+
+class spritesheet(object):
+    def __init__(self, filename):
+        try:
+            self.sheet = pygame.image.load(filename).convert()
+        except pygame.error as e:
+            print('Unable to load spritesheet image:', filename, ":", e)
+            raise SystemExit
+        
+    def image_at(self, rectangle, colorkey = None):
+        "Loads image from x,y,x+offset,y+offset"
+        rect = pygame.Rect(rectangle[0], rectangle[1], rectangle[2], rectangle[3])
+        image = pygame.Surface(rect.size).convert()
+        image.blit(self.sheet, (0, 0), rect)
+        if colorkey != None:
+            if colorkey == -1:
+                colorkey = image.get_at((0,0))
+            image.set_colorkey(colorkey, pygame.RLEACCEL)
+        return image
+
