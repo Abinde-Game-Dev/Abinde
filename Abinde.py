@@ -798,8 +798,8 @@ class Game(object):
         global windows
 
         self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
+        for kwarg in kwargs:
+            self.variables[kwarg] = kwargs.get(kwarg)
 
         self.all_s = []
         pygame.init()
@@ -1090,9 +1090,6 @@ class sprite:
         
     class Text(object):
         def __init__(self, game, pos, text, fontsize=30, fontname="Sans Serif", color=color.WHITE):
-            self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
             game.all_s.append(self)
             self.font = pygame.font.SysFont(fontname, fontsize)
             self.root = self.font.render(text, False, color)
