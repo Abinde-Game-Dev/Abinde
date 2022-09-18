@@ -1,4 +1,3 @@
-GAME - [Update] Event Added
 GAME - WindowShown
 GAME - WindowMoved
 GAME - VideoExpose
@@ -6,6 +5,8 @@ GAME - WindowExposed
 GAME - ActiveEvent
 GAME - WindowFocusGained
 GAME - WindowTakeFocus
+GAME - KeyDown
+GAME - KeyUp
 GAME - ActiveEvent
 GAME - WindowEnter
 GAME - MouseMotion

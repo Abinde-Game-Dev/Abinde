@@ -23,7 +23,6 @@ mixer.init()
 pygame.font.init()
 
 windows = []
-all_s = []
 
 game_quit = False
 
@@ -762,8 +761,6 @@ class mod:
 def check_all():
     if not pkg_resources.get_distribution("pygame").version >= "2.1.2":
         warnings.warn("Your version of pygame ({}) is outdated. Upgrading pygame is highly reccomended.".format(pkg_resources.get_distribution("pygame").version), Warning)
-    if not pkg_resources.get_distribution("Abinde").version >= "2.3":
-        warnings.warn("Your version of Abinde ({}) is outdated. Upgrading Abinde is highly reccomended.".format(pkg_resources.get_distribution("Abinde").version), Warning)
 
 def pil_image_to_surface(pilImage):
     return pygame.image.fromstring(
@@ -797,9 +794,14 @@ class error:
 
 
 class Game(object):
-    def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file"):
+    def __init__(self, title="New Abinde Instance", size=[500, 600], bg=color.BLACK, warn_me="always", log_to="file", **kwargs):
         global windows
 
+        self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+
+        self.all_s = []
         pygame.init()
         sys.stdout.flush()
         
@@ -845,38 +847,40 @@ class Game(object):
     def loop(self):
             global game_quit
             while self.looping:
-                if not game_quit:
+                    if not game_quit:
+                        try:
+                            try:
+                                self.root.fill(self.bg)
+                            except:
+                                raise error.BackgroundError
+                            
+                            for event in pygame.event.get():
+                                if event.type == pygame.QUIT:
+                                    pygame.quit()
+                                    game_quit = True
+                                    self.looping = False
+                                    sys.exit()
+                                if event.type == pygame.KEYUP:
+                                    for function in self.on_keyup:
+                                        function(event)
+                                if event.type == pygame.KEYDOWN:
+                                    for function in self.on_keydown:
+                                        function(event)
+                                if event.type == pygame.MOUSEMOTION:
+                                    for function in self.on_mousemotion:
+                                        function(event)
+                                logging.info(pygame.event.event_name(event.type))
 
-                    
-                    try:
-                        self.root.fill(self.bg)
-                    except:
-                        raise error.BackgroundError
-                    
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                            pygame.quit()
-                            game_quit = True
-                            self.looping = False
-                            sys.exit()
-                        if event.type == pygame.KEYUP:
-                            for function in self.on_keyup:
+                            for function in self.on_update:
                                 function(event)
-                        if event.type == pygame.KEYDOWN:
-                            for function in self.on_keydown:
-                                function(event)
-                        if event.type == pygame.MOUSEMOTION:
-                            for function in self.on_mousemotion:
-                                function(event)
-                        logging.info(pygame.event.event_name(event.type))
-
-                    for function in self.on_update:
-                        function(event)
-                    self.checkkeypress()
-                    for sprite in all_s:
-                        sprite.draw(self)
-                    pygame.display.flip()
-                    self.fps.tick(60)
+                            self.checkkeypress()
+                            for sprite in self.all_s:
+                                sprite.draw(self)
+                            pygame.display.flip()
+                            self.fps.tick(60)
+                        except KeyboardInterrupt:
+                            logging.error("Loop Interrupt")
+                            break
 
     def mainloop(self):
         self.looping = True
@@ -894,6 +898,17 @@ class Game(object):
     
     def wait(self, ms):
         time.sleep(ms / 1000)
+    def close(self):
+        logging.info("Quit")
+        pygame.display.quit()
+    def reset(self):
+        logging.info("Reset")
+        self.on_update = []
+        self.on_keydown = []
+        self.on_keyup = []
+        self.on_mousemotion = []
+        self.on_keypress = []
+        self.all_s = []
 
 class OnKeyUp:
     def __init__(self, game, do):
@@ -919,9 +934,12 @@ class OnKeyPress:
 
 class sprite:
     class Rectangle(object):
-        def __init__(self, pos=[40, 40], size=[50, 50], color=color.WHITE, title="Rectangle"):
-            global all_s
-            all_s.append(self)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Rectangle", **kwargs):
+            self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+            game.all_s.append(self)
+            self.game = game
             self.x = pos[0]
             self.y = pos[1]
             self.width = size[0]
@@ -931,6 +949,7 @@ class sprite:
             self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
         def draw(self, game):
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             pygame.draw.rect(game.root, self.color, self.rect)
             
         def returntitle(self):
@@ -952,11 +971,28 @@ class sprite:
         def get_size(self):
             return [self.width, self.height]
 
+        def kill(self):
+            self.game.all_s.remove(self)
+
+        def touching(self, sprite):
+            if self.rect.colliderect(sprite.rect):
+                return sprite
+            
+        def touching_any(self, sprites):
+            self.sprites = []
+            for sprite in sprites:
+                if self.touching(sprite):
+                    self.sprites.append(sprite)
+            return self.sprites
+
             
     class Line(object):
-        def __init__(self, pos=[0, 0], size=[50, 50], color=color.WHITE, title="Line"):
-            global all_s
-            all_s.append(self)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Line", **kwargs):
+            self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+            game.all_s.append(self)
+            self.game = game
             self.x = pos[0]
             self.y = pos[1]
             self.width = size[0]
@@ -965,6 +1001,7 @@ class sprite:
             self.title = title
             
         def draw(self, game):
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             pygame.draw.line(game.root, self.color, [self.x, self.y], [self.width, self.height])
             
         def returntitle(self):
@@ -986,11 +1023,28 @@ class sprite:
         def get_size(self):
             return [self.width, self.height]
 
+        def kill(self):
+            self.game.all_s.remove(self)
+
+        def touching(self, sprite):
+            if self.rect.colliderect(sprite.rect):
+                return sprite
+            
+        def touching_any(self, sprites):
+            self.sprites = []
+            for sprite in sprites:
+                if self.touching(sprite):
+                    self.sprites.append(sprite)
+            return self.sprites
+
             
     class Ellipse(object):
-        def __init__(self, pos=[80, 80], size=[50, 50], color=color.WHITE, title="Ellipse"):
-            global all_s
-            all_s.append(self)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Ellipse", **kwargs):
+            self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+            game.all_s.append(self)
+            self.game = game
             self.x = pos[0]
             self.y = pos[1]
             self.width = size[0]
@@ -999,6 +1053,7 @@ class sprite:
             self.title = title
             
         def draw(self, game):
+            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             pygame.draw.ellipse(game.root, self.color, (self.x, self.y, self.width, self.height))
             
         def returntitle(self):
@@ -1007,36 +1062,60 @@ class sprite:
         def move(self, move=[1, 1]):
             self.x += move[0]
             self.y += move[1]
-            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
             
         def go_to(self, pos=[1, 1]):
             self.x = pos[0]
             self.y = pos[1]
-            self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         
         def get_pos(self):
             return [self.x, self.y]
         
         def get_size(self):
             return [self.width, self.height]
+        
+        def kill(self):
+            self.game.all_s.remove(self)
+
+        def touching(self, sprite):
+            if self.rect.colliderect(sprite.rect):
+                return sprite
+            
+        def touching_any(self, sprites):
+            self.sprites = []
+            for sprite in sprites:
+                if self.touching(sprite):
+                    self.sprites.append(sprite)
+            return self.sprites
 
         
     class Text(object):
-        def __init__(self, fontname, text, fontsize=30, pos=(10, 10), color=color.WHITE):
-            global all_s
-            all_s.append(self)
+        def __init__(self, game, pos, text, fontsize=30, fontname="Sans Serif", color=color.WHITE):
+            self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+            game.all_s.append(self)
             self.font = pygame.font.SysFont(fontname, fontsize)
             self.root = self.font.render(text, False, color)
             self.pos = pos
+            self.game = game
+            self.text = text
+            self.color = color
             
         def draw(self, game):
+            self.root = self.font.render(self.text, False, self.color)
             game.root.blit(self.root, self.pos)
+        
+        def kill(self):
+            self.game.all_s.remove(self)
 
 
     class Image(object):
-        def __init__(self, image, pos=[40, 40], title="Image"):
-            global all_s
-            all_s.append(self)
+        def __init__(self, game, image, pos, title="Image", **kwargs):
+            self.variables = {}
+            for kwarg in kwargs:
+                self.variables[kwarg] = kwargs.get(kwarg)
+            game.all_s.append(self)
+            self.game = game
             self.x = pos[0]
             self.y = pos[1]
             self.color = color
@@ -1063,6 +1142,20 @@ class sprite:
         
         def get_pos(self):
             return [self.x, self.y]
+        
+        def kill(self):
+            self.game.all_s.remove(self)
+
+        def touching(self, sprite):
+            if self.rect.colliderect(sprite.rect):
+                return sprite
+            
+        def touching_any(self, sprites):
+            self.sprites = []
+            for sprite in sprites:
+                if self.touching(sprite):
+                    self.sprites.append(sprite)
+            return self.sprites
 
 
 class Audio:
@@ -1094,4 +1187,16 @@ class spritesheet(object):
                 colorkey = image.get_at((0,0))
             image.set_colorkey(colorkey, pygame.RLEACCEL)
         return image
+
+
+def quit():
+    logging.info("Full Quit")
+    pygame.quit()
+    sys.exit()
+
+
+game = Game()
+rect = sprite.Rectangle(game, [0, 0], [7, 7], hi="hello")
+print(rect.variables["hi"])
+game.mainloop()
 
