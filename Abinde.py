@@ -934,10 +934,7 @@ class OnKeyPress:
 
 class sprite:
     class Rectangle(object):
-        def __init__(self, game, pos, size, color=color.WHITE, title="Rectangle", **kwargs):
-            self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Rectangle"):
             game.all_s.append(self)
             self.game = game
             self.x = pos[0]
@@ -987,10 +984,7 @@ class sprite:
 
             
     class Line(object):
-        def __init__(self, game, pos, size, color=color.WHITE, title="Line", **kwargs):
-            self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Line"):
             game.all_s.append(self)
             self.game = game
             self.x = pos[0]
@@ -1039,10 +1033,7 @@ class sprite:
 
             
     class Ellipse(object):
-        def __init__(self, game, pos, size, color=color.WHITE, title="Ellipse", **kwargs):
-            self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
+        def __init__(self, game, pos, size, color=color.WHITE, title="Ellipse"):
             game.all_s.append(self)
             self.game = game
             self.x = pos[0]
@@ -1107,10 +1098,7 @@ class sprite:
 
 
     class Image(object):
-        def __init__(self, game, image, pos, title="Image", **kwargs):
-            self.variables = {}
-            for kwarg in kwargs:
-                self.variables[kwarg] = kwargs.get(kwarg)
+        def __init__(self, game, image, pos, title="Image"):
             game.all_s.append(self)
             self.game = game
             self.x = pos[0]
@@ -1191,9 +1179,4 @@ def quit():
     pygame.quit()
     sys.exit()
 
-
-game = Game()
-rect = sprite.Rectangle(game, [0, 0], [7, 7], hi="hello")
-print(rect.variables["hi"])
-game.mainloop()
 
