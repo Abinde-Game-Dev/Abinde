@@ -48,7 +48,7 @@ pip install -U Abinde
 ```python
 import Abinde as ab
 game = ab.Game()
-player = ab.sprite.Rectangle()
+player = ab.sprite.Rectangle(game, [10, 10], [100, 100])
 game.mainloop()
 ```
 
